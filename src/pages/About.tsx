@@ -1,5 +1,6 @@
-import { Award, Target, Eye, CheckCircle } from 'lucide-react';
+import { Award, Target, Eye, CheckCircle, ArrowRight } from 'lucide-react';
 import { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function About() {
   const observerRef = useRef<IntersectionObserver | null>(null);
@@ -180,12 +181,19 @@ export default function About() {
           >
             Committed to Excellence
           </h2>
-          <p className="text-lg text-gray-700 leading-relaxed">
+          <p className="text-lg text-gray-700 leading-relaxed mb-8">
             With years of experience and hundreds of satisfied clients, we've built a reputation for
             delivering exceptional photography services. Every project we undertake is treated with
             the utmost care and professionalism, ensuring that your special moments are preserved
             perfectly.
           </p>
+          <Link
+            to="/blog"
+            className="inline-flex items-center space-x-2 bg-gradient-to-r from-gray-900 to-gray-700 text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg transition-all duration-300 hover:gap-4"
+          >
+            <span>Explore</span>
+            <ArrowRight className="w-5 h-5" />
+          </Link>
         </div>
       </section>
     </div>

@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Camera, Award, Clock, Users, Calendar } from 'lucide-react';
+import { ArrowLeft, Camera, Award, Clock, Users } from 'lucide-react';
 
 export default function Blog() {
   const observerRef = useRef<IntersectionObserver | null>(null);
@@ -11,17 +11,36 @@ export default function Blog() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('animate-fade-in');
+            entry.target.classList.remove('opacity-0');
+            // Stop observing once animated
+            observerRef.current?.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.1, rootMargin: '50px' }
     );
 
-    document.querySelectorAll('.fade-in-section').forEach((el) => {
-      observerRef.current?.observe(el);
-    });
+    // Use setTimeout to ensure DOM is ready
+    const timer = setTimeout(() => {
+      const sections = document.querySelectorAll('.fade-in-section');
+      sections.forEach((el) => {
+        // Check if element is already in viewport
+        const rect = el.getBoundingClientRect();
+        const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+        
+        if (isVisible && !el.classList.contains('animate-fade-in')) {
+          el.classList.add('animate-fade-in');
+          el.classList.remove('opacity-0');
+        } else {
+          observerRef.current?.observe(el);
+        }
+      });
+    }, 100);
 
-    return () => observerRef.current?.disconnect();
+    return () => {
+      clearTimeout(timer);
+      observerRef.current?.disconnect();
+    };
   }, []);
 
   return (
@@ -31,8 +50,7 @@ export default function Blog() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage:
-              "url('https://images.pexels.com/photos/1787220/pexels-photo-1787220.jpeg?auto=compress&cs=tinysrgb&w=1600')",
+            backgroundImage: "url('/images/studio.jpeg')",
           }}
         >
           <div className="absolute inset-0 bg-black opacity-60"></div>
@@ -60,7 +78,7 @@ export default function Blog() {
         </Link>
 
         {/* Article Header */}
-        <header className="mb-12 fade-in-section opacity-0">
+        <header className="mb-12 fade-in-section">
           <h1
             className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 leading-tight"
             style={{ fontFamily: "'Playfair Display', serif" }}
@@ -73,23 +91,23 @@ export default function Blog() {
               <span>5 min read</span>
             </div>
             <div className="flex items-center space-x-2">
-              <Calendar className="w-4 h-4" />
+              <Clock className="w-4 h-4" />
               <span>{new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
             </div>
           </div>
         </header>
 
         {/* Featured Image */}
-        <div className="mb-12 fade-in-section opacity-0">
+        <div className="mb-12 fade-in-section">
           <img
-            src="https://images.pexels.com/photos/2380794/pexels-photo-2380794.jpeg?auto=compress&cs=tinysrgb&w=1600"
+            src="/images/studio.jpeg"
             alt="Professional photographer near me capturing wedding moments with high-end camera equipment"
             className="w-full h-auto rounded-lg shadow-xl"
           />
         </div>
 
         {/* Article Content */}
-        <div className="prose prose-lg max-w-none fade-in-section opacity-0">
+        <div className="max-w-none fade-in-section">
           {/* First Paragraph with Keyword */}
           <p className="text-xl text-gray-800 leading-relaxed mb-6 font-medium">
             Finding a <strong>professional photographer near me</strong> often begins with urgency. A wedding date is approaching, a family milestone needs to be captured, or a professional profile photo is overdue. In these moments, people are not just looking for someone with a camera—they are looking for someone they can trust with memories that cannot be recreated.
@@ -118,7 +136,7 @@ export default function Blog() {
             
             <div className="mb-8">
               <img
-                src="https://images.pexels.com/photos/265722/pexels-photo-265722.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                src="/images/studio.jpeg"
                 alt="Local professional photographer working with clients in studio setting"
                 className="w-full h-auto rounded-lg shadow-lg mb-6"
               />
@@ -155,7 +173,7 @@ export default function Blog() {
 
             <div className="mb-8">
               <img
-                src="https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                src="/images/wedding1.jpg"
                 alt="Professional photography services comparison and selection process"
                 className="w-full h-auto rounded-lg shadow-lg mb-6"
               />
@@ -209,7 +227,7 @@ export default function Blog() {
 
             <div className="mb-8">
               <img
-                src="https://images.pexels.com/photos/2422259/pexels-photo-2422259.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                src="/images/studio.jpeg"
                 alt="Expert professional photographer near me with high-end equipment and studio setup"
                 className="w-full h-auto rounded-lg shadow-lg mb-6"
               />
@@ -265,7 +283,7 @@ export default function Blog() {
 
             <div className="mb-8">
               <img
-                src="https://images.pexels.com/photos/169198/pexels-photo-169198.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                src="/images/wedding2.jpg"
                 alt="Local professional photographer meeting clients for consultation and planning"
                 className="w-full h-auto rounded-lg shadow-lg mb-6"
               />
@@ -306,7 +324,7 @@ export default function Blog() {
 
             <div className="mb-8">
               <img
-                src="https://images.pexels.com/photos/265722/pexels-photo-265722.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                src="/images/candid.jpg"
                 alt="Emotion-driven professional photography capturing genuine moments and expressions"
                 className="w-full h-auto rounded-lg shadow-lg mb-6"
               />
@@ -372,7 +390,7 @@ export default function Blog() {
 
             <div className="mb-8">
               <img
-                src="https://images.pexels.com/photos/2380794/pexels-photo-2380794.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                src="/images/studio.jpeg"
                 alt="Varun Photography professional photographer near me offering wedding photography and studio portraits"
                 className="w-full h-auto rounded-lg shadow-lg mb-6"
               />

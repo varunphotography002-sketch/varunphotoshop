@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Phone, Mail, Clock, MapPin, Send } from 'lucide-react';
+import SEO from '@/components/SEO';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -96,7 +97,28 @@ export default function Contact() {
   ];
 
   return (
-    <div className="bg-white pt-20">
+    <>
+      <SEO
+        title="Contact Varun Photography - Book Your Photography Session Today"
+        description="Get a free quote for wedding photography, pre-wedding shoots & studio portraits. Contact us now - quick response guaranteed. Professional photography services in Hyderabad."
+        keywords="Contact Photographer, Book Photography Session, Wedding Photographer Contact, Professional Photography Booking, Photography Quote, Hyderabad Photographer"
+        canonical="https://www.varunphotography002.com/contact"
+        structuredData={{
+          '@context': 'https://schema.org',
+          '@type': 'ContactPage',
+          mainEntity: {
+            '@type': 'PhotographyService',
+            name: 'Varun Photography',
+            url: 'https://www.varunphotography002.com',
+            contactPoint: {
+              '@type': 'ContactPoint',
+              contactType: 'Customer Service',
+              availableLanguage: 'English',
+            },
+          },
+        }}
+      />
+      <div className="bg-white pt-20">
       <section className="relative h-96 flex items-center justify-center overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
@@ -324,5 +346,6 @@ export default function Contact() {
         </div>
       </section>
     </div>
+    </>
   );
 }

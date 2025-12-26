@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Camera, Award, Clock, Users } from 'lucide-react';
+import SEO from '@/components/SEO';
 
 export default function Blog() {
   const observerRef = useRef<IntersectionObserver | null>(null);
@@ -44,7 +45,14 @@ export default function Blog() {
   }, []);
 
   return (
-    <div className="bg-white pt-20">
+    <>
+      <SEO
+        title="Photography Blog - Tips & Insights | Varun Photography"
+        description="Expert photography tips & wedding photography advice. Learn how to choose a professional photographer. Read our blog & book your session with Varun Photography today."
+        keywords="Photography Blog, Professional Photographer Tips, Wedding Photography Advice, Photography Insights, Choose Photographer"
+        canonical="https://www.varunphotography002.com/blog"
+      />
+      <div className="bg-white pt-20">
       {/* Hero Section */}
       <section className="relative h-96 flex items-center justify-center overflow-hidden">
         <div
@@ -464,6 +472,7 @@ export default function Blog() {
         </div>
       </article>
     </div>
+    </>
   );
 }
 

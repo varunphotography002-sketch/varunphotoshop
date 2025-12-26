@@ -1,6 +1,7 @@
 import { Award, Target, Eye, CheckCircle, ArrowRight } from 'lucide-react';
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '@/components/SEO';
 
 export default function About() {
   const observerRef = useRef<IntersectionObserver | null>(null);
@@ -33,7 +34,14 @@ export default function About() {
   ];
 
   return (
-    <div className="bg-white pt-20">
+    <>
+      <SEO
+        title="About Varun Photography - Professional Photography Team | Trusted Photographers"
+        description="Meet Varun Photography's expert team. Years of experience in wedding photography & studio portraits. 100% customer satisfaction. Book with confidence - professional service guaranteed."
+        keywords="About Varun Photography, Professional Photographer, Photography Team, Wedding Photography Services, Trusted Photographer"
+        canonical="https://www.varunphotography002.com/about"
+      />
+      <div className="bg-white pt-20">
       <section className="relative h-96 flex items-center justify-center overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
@@ -196,6 +204,7 @@ export default function About() {
           </Link>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 }

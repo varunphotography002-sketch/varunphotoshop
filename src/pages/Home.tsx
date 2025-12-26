@@ -10,6 +10,7 @@ import {
 import { ZoomParallax } from '@/components/ui/zoom-parallax';
 import Lenis from '@studio-freight/lenis';
 import ServiceCustomizer from '@/components/ServiceCustomizer';
+import SEO from '@/components/SEO';
 
 export default function Home() {
   const observerRef = useRef<IntersectionObserver | null>(null);
@@ -104,7 +105,24 @@ export default function Home() {
   }));
 
   return (
-    <div className="bg-white">
+    <>
+      <SEO
+        title="Varun Photography - Professional Wedding Photography & Studio Portraits | Book Now"
+        description="Professional wedding photography, pre-wedding shoots & studio portraits. Expert photographers capturing your special moments. Book your session today - 100% satisfaction guaranteed."
+        keywords="Varun Photography, Wedding Photography, Professional Photographer, Pre-Wedding Photography, Candid Photography, Studio Portraits, Photography Services, Book Photographer"
+        canonical="https://www.varunphotography002.com/"
+        structuredData={{
+          '@context': 'https://schema.org',
+          '@type': 'PhotographyService',
+          name: 'Varun Photography',
+          description: 'Professional wedding photography, pre-wedding shoots, candid photography, and studio portraits',
+          url: 'https://www.varunphotography002.com',
+          serviceType: ['Wedding Photography', 'Pre-Wedding Photography', 'Candid Photography', 'Studio Portraits', 'Kids Photography'],
+          areaServed: 'Hyderabad',
+          priceRange: '$$',
+        }}
+      />
+      <div className="bg-white">
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
@@ -293,5 +311,6 @@ export default function Home() {
         </div>
       </section>
     </div>
+    </>
   );
 }

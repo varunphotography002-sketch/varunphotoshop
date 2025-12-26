@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { X } from 'lucide-react';
+import SEO from '@/components/SEO';
 
 export default function Portfolio() {
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -143,7 +144,14 @@ export default function Portfolio() {
   }, [selectedImage, selectedIndex]);
 
   return (
-    <div className="bg-white pt-20">
+    <>
+      <SEO
+        title="Portfolio - Wedding Photography Gallery | Varun Photography"
+        description="Browse our stunning wedding photography portfolio. See real wedding photos, pre-wedding shoots & studio portraits. Book your session after viewing our work - quality guaranteed."
+        keywords="Photography Portfolio, Wedding Photography Gallery, Pre-Wedding Photos, Candid Photography, Studio Portraits, Professional Photography, Wedding Photos"
+        canonical="https://www.varunphotography002.com/portfolio"
+      />
+      <div className="bg-white pt-20">
       <section className="relative h-96 flex items-center justify-center overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
@@ -250,5 +258,6 @@ export default function Portfolio() {
         </div>
       )}
     </div>
+    </>
   );
 }

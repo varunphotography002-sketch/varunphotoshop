@@ -43,6 +43,9 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-20">
           <Link
             to="/"
+            onClick={() => {
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
             className="flex items-center space-x-2 text-2xl font-bold tracking-tight"
             style={{ fontFamily: "'Playfair Display', serif" }}
           >

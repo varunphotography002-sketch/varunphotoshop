@@ -1,6 +1,7 @@
 import { Heart, Camera, Baby, Users, Sparkles, Edit } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useEffect, useRef } from 'react';
+import SEO from '@/components/SEO';
 
 export default function Services() {
   const observerRef = useRef<IntersectionObserver | null>(null);
@@ -84,8 +85,30 @@ export default function Services() {
   ];
 
   return (
-    <div className="bg-white pt-20">
-      <section className="relative h-96 flex items-center justify-center overflow-hidden">
+    <>
+      <SEO
+        title="Photography Services - Wedding, Pre-Wedding, Studio Portraits | Varun Photography"
+        description="Book professional wedding photography, pre-wedding shoots, candid & studio portraits. Expert photographers with high-end equipment. Get a quote today - affordable packages available."
+        keywords="Photography Services, Wedding Photography, Pre-Wedding Photography, Candid Photography, Studio Portraits, Kids Photography, Professional Photographer, Book Photography"
+        canonical="https://www.varunphotography002.com/services"
+        structuredData={{
+          '@context': 'https://schema.org',
+          '@type': 'Service',
+          serviceType: 'Photography Services',
+          provider: {
+            '@type': 'PhotographyService',
+            name: 'Varun Photography',
+            url: 'https://www.varunphotography002.com',
+          },
+          areaServed: 'Hyderabad',
+          offers: {
+            '@type': 'Offer',
+            description: 'Professional photography packages for weddings, pre-wedding, candid, and studio portraits',
+          },
+        }}
+      />
+      <div className="bg-white pt-20">
+        <section className="relative h-96 flex items-center justify-center overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
@@ -163,5 +186,6 @@ export default function Services() {
         </div>
       </section>
     </div>
+    </>
   );
 }

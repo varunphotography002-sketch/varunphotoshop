@@ -67,7 +67,7 @@ export default function Home() {
       title: 'Kids & Baby Photography',
       description: 'Adorable and memorable photoshoots for children.',
       icon: Users,
-      image: '/Archive (1)/kids and baby photography.jpg',
+      image: '/Archive (1)/kids and baby photography2.jpg',
     },
     {
       title: 'Candid Photography',
@@ -85,7 +85,7 @@ export default function Home() {
       title: 'Photo Editing & Retouching',
       description: 'Professional enhancements and color correction.',
       icon: Camera,
-      image: '/Archive (1)/retouching.jpg',
+      image: '/Archive (1)/retouching2.jpg',
     },
   ];
 

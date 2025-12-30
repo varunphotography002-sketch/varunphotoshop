@@ -32,77 +32,77 @@ export default function Portfolio() {
   const portfolioItems = [
     {
       category: 'Weddings',
-      image: 'https://images.pexels.com/photos/265722/pexels-photo-265722.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/Archive (1)/001Wedding.jpg',
       title: 'Wedding Ceremony',
     },
     {
       category: 'Pre-Wedding',
-      image: 'https://images.pexels.com/photos/1024993/pexels-photo-1024993.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/Archive (1)/PRE WEDDING.jpg',
       title: 'Pre-Wedding Shoot',
     },
     {
       category: 'Kids / Baby',
-      image: 'https://images.pexels.com/photos/1648375/pexels-photo-1648375.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/Archive (1)/kids and baby photography.jpg',
       title: 'Baby Portrait',
     },
     {
       category: 'Weddings',
-      image: 'https://images.pexels.com/photos/1444442/pexels-photo-1444442.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/Archive (1)/002Wedding.jpg',
       title: 'Wedding Moments',
     },
     {
       category: 'Portraits',
-      image: 'https://images.pexels.com/photos/1181690/pexels-photo-1181690.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/Archive (1)/studio .jpeg',
       title: 'Portrait Session',
     },
     {
       category: 'Candid',
-      image: 'https://images.pexels.com/photos/1043473/pexels-photo-1043473.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/Archive (1)/candid .jpg',
       title: 'Candid Moments',
     },
     {
       category: 'Pre-Wedding',
-      image: 'https://images.pexels.com/photos/1729931/pexels-photo-1729931.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/Archive (1)/PRE WEDDING.jpg',
       title: 'Couple Photography',
     },
     {
       category: 'Studio',
-      image: 'https://images.pexels.com/photos/2422259/pexels-photo-2422259.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/Archive (1)/studio .jpeg',
       title: 'Studio Portrait',
     },
     {
       category: 'Weddings',
-      image: 'https://images.pexels.com/photos/1252500/pexels-photo-1252500.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/Archive (1)/001Wedding.jpg',
       title: 'Wedding Reception',
     },
     {
       category: 'Events',
-      image: 'https://images.pexels.com/photos/1157557/pexels-photo-1157557.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/Archive (1)/002Wedding.jpg',
       title: 'Event Photography',
     },
     {
       category: 'Kids / Baby',
-      image: 'https://images.pexels.com/photos/1166473/pexels-photo-1166473.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/Archive (1)/kids and baby photography.jpg',
       title: 'Kids Portrait',
     },
     {
       category: 'Candid',
-      image: 'https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/Archive (1)/candid photography.JPG',
       title: 'Candid Shot',
     },
     {
       category: 'Portraits',
-      image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/Archive (1)/studio .jpeg',
       title: 'Professional Portrait',
     },
     {
       category: 'Pre-Wedding',
-      image: 'https://images.pexels.com/photos/1024967/pexels-photo-1024967.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/Archive (1)/PRE WEDDING.jpg',
       title: 'Romantic Shoot',
     },
     {
       category: 'Studio',
-      image: 'https://images.pexels.com/photos/1462980/pexels-photo-1462980.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/Archive (1)/studio .jpeg',
       title: 'Studio Session',
     },
   ];
@@ -154,10 +154,12 @@ export default function Portfolio() {
       <div className="bg-white pt-20">
       <section className="relative h-96 flex items-center justify-center overflow-hidden">
         <div
-          className="absolute inset-0 bg-cover bg-center"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage:
-              "url('https://images.pexels.com/photos/1983032/pexels-photo-1983032.jpeg?auto=compress&cs=tinysrgb&w=1600')",
+              "url('/Archive (1)/background wall paper .jpg')",
+            backgroundPosition: 'center center',
+            backgroundSize: 'cover',
           }}
         >
           <div className="absolute inset-0 bg-black opacity-60"></div>
@@ -205,7 +207,7 @@ export default function Portfolio() {
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-full h-auto transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-auto object-cover object-center transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -242,7 +244,7 @@ export default function Portfolio() {
           <img
             src={selectedImage}
             alt="Portfolio"
-            className="max-w-full max-h-full object-contain"
+            className="max-w-full max-h-full object-contain object-center"
             onClick={(e) => e.stopPropagation()}
           />
 

@@ -55,47 +55,47 @@ export default function Home() {
       title: 'Wedding Photography',
       description: 'Capturing the joy, emotions, rituals, and celebrations of your big day.',
       icon: Heart,
-      image: 'https://images.pexels.com/photos/265722/pexels-photo-265722.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/Archive (1)/002Wedding.jpg',
     },
     {
       title: 'Pre-Wedding Shoots',
       description: 'Beautiful couple stories told through creative photography.',
       icon: Camera,
-      image: 'https://images.pexels.com/photos/1024993/pexels-photo-1024993.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/Archive (1)/PRE WEDDING.jpg',
     },
     {
       title: 'Kids & Baby Photography',
       description: 'Adorable and memorable photoshoots for children.',
       icon: Users,
-      image: 'https://images.pexels.com/photos/1648375/pexels-photo-1648375.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/Archive (1)/kids and baby photography.jpg',
     },
     {
       title: 'Candid Photography',
       description: 'Unscripted moments captured naturally.',
       icon: Camera,
-      image: 'https://images.pexels.com/photos/1444442/pexels-photo-1444442.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/Archive (1)/candid .jpg'
     },
     {
       title: 'Studio Portraits',
       description: 'Professional portraits with premium lighting setup.',
       icon: Award,
-      image: 'https://images.pexels.com/photos/2422259/pexels-photo-2422259.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/Archive (1)/studio .jpeg',
     },
     {
       title: 'Photo Editing & Retouching',
       description: 'Professional enhancements and color correction.',
       icon: Camera,
-      image: 'https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/Archive (1)/retouching.jpg',
     },
   ];
 
   const portfolioImages = [
-    'https://images.pexels.com/photos/1444442/pexels-photo-1444442.jpeg?auto=compress&cs=tinysrgb&w=800',
-    'https://images.pexels.com/photos/1024993/pexels-photo-1024993.jpeg?auto=compress&cs=tinysrgb&w=800',
-    'https://images.pexels.com/photos/1043473/pexels-photo-1043473.jpeg?auto=compress&cs=tinysrgb&w=800',
-    'https://images.pexels.com/photos/1252500/pexels-photo-1252500.jpeg?auto=compress&cs=tinysrgb&w=800',
-    'https://images.pexels.com/photos/1729931/pexels-photo-1729931.jpeg?auto=compress&cs=tinysrgb&w=800',
-    'https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&w=800',
+    '/Archive (1)/001Wedding.jpg',
+    '/Archive (1)/002Wedding.jpg',
+    '/Archive (1)/PRE WEDDING.jpg',
+    '/Archive (1)/candid .jpg',
+    '/Archive (1)/kids and baby photography.jpg',
+    '/Archive (1)/studio .jpeg',
   ];
 
   // Convert portfolio images to ZoomParallax format (max 7 images)
@@ -123,29 +123,35 @@ export default function Home() {
         }}
       />
       <div className="bg-white">
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative h-screen overflow-hidden">
         <div
-          className="absolute inset-0 bg-cover bg-center"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage:
-              "url('https://images.pexels.com/photos/265722/pexels-photo-265722.jpeg?auto=compress&cs=tinysrgb&w=1600')",
+              "url('/Archive (1)/background wall paper .jpg')",
+            backgroundPosition: 'center center',
+            backgroundSize: 'cover',
           }}
         >
-          <div className="absolute inset-0 bg-black opacity-50"></div>
         </div>
 
-        <div className="relative z-10 text-center text-white px-4 max-w-5xl mx-auto">
+        {/* H1 at the top */}
+        <div className="absolute top-0 left-0 right-0 z-10 text-center px-4 pt-16 md:pt-24 max-w-5xl mx-auto">
           <h1
-            className="text-5xl md:text-7xl font-bold mb-6 animate-slide-up"
+            className="text-5xl md:text-4xl font-bold animate-slide-up text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)]"
             style={{ fontFamily: "'Playfair Display', serif" }}
           >
             Capturing Moments That Last a Lifetime
           </h1>
-          <p className="text-xl md:text-2xl mb-12 opacity-90 animate-slide-up-delay">
+        </div>
+
+        {/* Paragraph and buttons at the bottom */}
+        <div className="absolute bottom-0 left-0 right-0 z-10 text-center px-4 pb-8 md:pb-12 max-w-5xl mx-auto">
+          <p className="text-xl md:text-1xl mb-13 text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)] animate-slide-up-delay">
             Professional photography that brings your memories to life with creativity, color, and
             emotion.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up-delay-2">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up-delay-2 mt-6">
             <Link
               to="/contact"
               className="bg-white text-gray-900 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all duration-300 hover:shadow-xl"
@@ -203,13 +209,13 @@ export default function Home() {
               </div>
               <HoverSliderImageWrap className="w-full md:w-[500px] lg:w-[600px] h-[400px] md:h-[500px] lg:h-[600px] flex-shrink-0">
                 {services.map((service, index) => (
-                  <div key={`${service.title}-${index}`} className="w-full h-full">
+                  <div key={`${service.title}-${index}`} className="w-full h-full overflow-hidden rounded-lg">
                     <HoverSliderImage
                       index={index}
                       imageUrl={service.image}
                       src={service.image}
                       alt={service.title}
-                      className="size-full object-cover rounded-lg"
+                      className="size-full object-cover object-center rounded-lg"
                       loading="eager"
                       decoding="async"
                     />
@@ -253,7 +259,7 @@ export default function Home() {
                 <img
                   src={img}
                   alt={`Portfolio ${index + 1}`}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-30 transition-opacity duration-300"></div>
               </div>

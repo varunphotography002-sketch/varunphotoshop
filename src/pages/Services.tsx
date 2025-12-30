@@ -1,4 +1,4 @@
-import { Heart, Camera, Baby, Users, Sparkles, Edit } from 'lucide-react';
+import { Heart, Camera, Users, Award } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useEffect, useRef } from 'react';
 import SEO from '@/components/SEO';
@@ -28,59 +28,39 @@ export default function Services() {
   const services = [
     {
       title: 'Wedding Photography',
-      description:
-        'We capture the joy, emotions, rituals, and celebrations of your big day with cinematic style. From the intimate moments to the grand celebrations, we document every precious detail of your special day.',
+      description: 'Capturing the joy, emotions, rituals, and celebrations of your big day.',
       icon: Heart,
-      image:
-        'https://images.pexels.com/photos/265722/pexels-photo-265722.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/Archive (1)/002Wedding.jpg',
     },
     {
       title: 'Pre-Wedding Shoots',
-      description:
-        'Beautiful couple stories told through creative photography at your favorite locations. We help you create stunning memories before your big day with artistic and romantic photoshoots.',
+      description: 'Beautiful couple stories told through creative photography.',
       icon: Camera,
-      image:
-        'https://images.pexels.com/photos/1024993/pexels-photo-1024993.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/Archive (1)/PRE WEDDING.jpg',
     },
     {
       title: 'Kids & Baby Photography',
-      description:
-        'Adorable, fun, and memorable photoshoots for infants, toddlers, and children. We capture the innocence, joy, and playful moments of childhood with patience and creativity.',
-      icon: Baby,
-      image:
-        'https://images.pexels.com/photos/1648375/pexels-photo-1648375.jpeg?auto=compress&cs=tinysrgb&w=800',
+      description: 'Adorable and memorable photoshoots for children.',
+      icon: Users,
+      image: '/Archive (1)/kids and baby photography.jpg',
     },
     {
       title: 'Candid Photography',
-      description:
-        'Unscripted moments captured naturally — the way memories are meant to be. We specialize in capturing genuine emotions and spontaneous moments that tell authentic stories.',
+      description: 'Unscripted moments captured naturally.',
       icon: Camera,
-      image:
-        'https://images.pexels.com/photos/1444442/pexels-photo-1444442.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/Archive (1)/candid .jpg',
     },
     {
       title: 'Studio Portraits',
-      description:
-        'Professional individual, family, and fashion portraits with premium lighting setup. Our studio is equipped with state-of-the-art equipment to create stunning, timeless portraits.',
-      icon: Users,
-      image:
-        'https://images.pexels.com/photos/2422259/pexels-photo-2422259.jpeg?auto=compress&cs=tinysrgb&w=800',
-    },
-    {
-      title: 'Maternity Shoots',
-      description:
-        'Celebrate the beauty of motherhood with elegant and emotional maternity photography. We create artistic images that honor this special time in your life.',
-      icon: Sparkles,
-      image:
-        'https://images.pexels.com/photos/1556652/pexels-photo-1556652.jpeg?auto=compress&cs=tinysrgb&w=800',
+      description: 'Professional portraits with premium lighting setup.',
+      icon: Award,
+      image: '/Archive (1)/studio .jpeg',
     },
     {
       title: 'Photo Editing & Retouching',
-      description:
-        'Color correction, retouching, background removal, and professional enhancements. We transform your photos into works of art with our expert post-processing services.',
-      icon: Edit,
-      image:
-        'https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?auto=compress&cs=tinysrgb&w=800',
+      description: 'Professional enhancements and color correction.',
+      icon: Camera,
+      image: '/Archive (1)/retouching.jpg',
     },
   ];
 
@@ -110,10 +90,12 @@ export default function Services() {
       <div className="bg-white pt-20">
         <section className="relative h-96 flex items-center justify-center overflow-hidden">
         <div
-          className="absolute inset-0 bg-cover bg-center"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage:
-              "url('https://images.pexels.com/photos/1983032/pexels-photo-1983032.jpeg?auto=compress&cs=tinysrgb&w=1600')",
+              "url('/Archive (1)/background wall paper .jpg')",
+            backgroundPosition: 'center center',
+            backgroundSize: 'cover',
           }}
         >
           <div className="absolute inset-0 bg-black opacity-60"></div>
@@ -158,7 +140,7 @@ export default function Services() {
                 <img
                   src={service.image}
                   alt={service.title}
-                  className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                  className="w-full h-full object-cover object-center hover:scale-110 transition-transform duration-500"
                 />
               </div>
             </div>

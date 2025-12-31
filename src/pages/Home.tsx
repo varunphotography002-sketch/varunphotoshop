@@ -8,6 +8,7 @@ import {
   TextStaggerHover,
 } from '@/components/ui/animated-slideshow';
 import { ZoomParallax } from '@/components/ui/zoom-parallax';
+import { HeroVideoSection } from '@/components/ui/hero-video-section';
 import Lenis from '@studio-freight/lenis';
 import ServiceCustomizer from '@/components/ServiceCustomizer';
 import SEO from '@/components/SEO';
@@ -383,6 +384,15 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <HeroVideoSection
+        heroTitle="Experience Our Photography Journey"
+        heroDescription="Watch how we capture life's most precious moments with creativity, passion, and professionalism."
+        emailPlaceholder="your.email@example.com"
+        backgroundImage="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=2072&q=80"
+        googleDriveLink="https://drive.google.com/file/d/1mrtKtCKTFqz0_H-jnIEgHjv7-qd3uUqS/view?usp=drive_link"
+        autoPlayOnScroll={true}
+      />
 
       <ServiceCustomizer />
 

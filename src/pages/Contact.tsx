@@ -280,13 +280,12 @@ export default function Contact() {
                       Preferred Date & Time
                     </label>
                     <input
-                      type="text"
+                      type="datetime-local"
                       id="preferredDate"
                       name="preferredDate"
                       value={formData.preferredDate}
                       onChange={handleChange}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-all"
-                      placeholder="e.g., December 15, 2025 at 3:00 PM"
                     />
                   </div>
 

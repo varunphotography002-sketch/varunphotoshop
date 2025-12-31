@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import { Camera, Heart, Users, Award, ArrowRight } from 'lucide-react';
-import { useEffect, useRef } from 'react';
+import { Camera, Heart, Users, Award, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
 import {
   HoverSlider,
   HoverSliderImage,
@@ -14,6 +14,7 @@ import SEO from '@/components/SEO';
 
 export default function Home() {
   const observerRef = useRef<IntersectionObserver | null>(null);
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
   useEffect(() => {
     observerRef.current = new IntersectionObserver(
@@ -104,6 +105,44 @@ export default function Home() {
     alt: `Portfolio image ${index + 1}`,
   }));
 
+  const testimonials = [
+    {
+      quote: "Absolutely loved their work! The pictures came out magical. Professional team and quick delivery.",
+      author: "Ramya & Praveen",
+    },
+    {
+      quote: "Best photography experience ever! They captured every emotion perfectly. Highly recommended!",
+      author: "Priya & Rohan",
+    },
+    {
+      quote: "Outstanding service and beautiful photos. The team was professional and made us feel comfortable throughout.",
+      author: "Anjali & Vikram",
+    },
+  ];
+
+  const galleryImages = [
+    {
+      src: '/Archive (1)/001Wedding.jpg',
+      alt: 'Wedding Photography',
+    },
+    {
+      src: '/Archive (1)/kids and baby photography.jpg',
+      alt: 'Baby Photography',
+    },
+    {
+      src: '/Archive (1)/PRE WEDDING.jpg',
+      alt: 'Pre-Wedding Photography',
+    },
+  ];
+
+  const nextTestimonial = () => {
+    setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+  };
+
+  const prevTestimonial = () => {
+    setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  };
+
   return (
     <>
       <SEO
@@ -165,28 +204,6 @@ export default function Home() {
               View Portfolio
             </Link>
           </div>
-        </div>
-      </section>
-
-      <section className="py-24 px-4 bg-gray-50 fade-in-section opacity-0">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2
-            className="text-4xl md:text-5xl font-bold mb-6 text-gray-900"
-            style={{ fontFamily: "'Playfair Display', serif" }}
-          >
-            Your Story, Captured Beautifully
-          </h2>
-          <p className="text-lg text-gray-600 leading-relaxed mb-8">
-            We are dedicated to making every picture meaningful. From portraits to weddings, we
-            bring artistry and precision to every frame.
-          </p>
-          <Link
-            to="/about"
-            className="inline-flex items-center space-x-2 text-gray-900 font-semibold hover:gap-4 transition-all"
-          >
-            <span>Know More About Us</span>
-            <ArrowRight className="w-5 h-5" />
-          </Link>
         </div>
       </section>
 
@@ -277,20 +294,92 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-24 px-4 fade-in-section opacity-0">
-        <div className="max-w-4xl mx-auto">
+      {/* Gallery Section */}
+      <section className="py-24 px-4 bg-white fade-in-section opacity-0">
+        <div className="max-w-7xl mx-auto">
+          <h2
+            className="text-4xl md:text-5xl font-bold text-center mb-4 text-gray-900"
+            style={{ fontFamily: "'Playfair Display', serif" }}
+          >
+            Gallery
+          </h2>
+          <p className="text-center text-lg text-gray-600 mb-12">
+            Experience the Art of Photography! See our works and relive your special moments.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {galleryImages.map((img, index) => (
+              <div
+                key={index}
+                className="relative overflow-hidden rounded-lg group cursor-pointer h-80"
+              >
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-30 transition-opacity duration-300"></div>
+              </div>
+            ))}
+          </div>
+          <div className="text-center mt-8">
+            <Link
+              to="/portfolio"
+              className="inline-block bg-pink-500 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-pink-600 transition-all duration-300 hover:shadow-xl"
+            >
+              See More
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section with Carousel */}
+      <section className="py-24 px-4 bg-gray-50 fade-in-section opacity-0">
+        <div className="max-w-4xl mx-auto relative">
           <h2
             className="text-4xl md:text-5xl font-bold text-center mb-16 text-gray-900"
             style={{ fontFamily: "'Playfair Display', serif" }}
           >
             What Our Clients Say
           </h2>
-          <div className="bg-white p-12 rounded-lg shadow-xl">
-            <p className="text-xl text-gray-700 italic mb-6 leading-relaxed">
-              "Absolutely loved their work! The pictures came out magical. Professional team and
-              quick delivery."
-            </p>
-            <p className="text-gray-900 font-semibold">— Ramya & Praveen</p>
+          
+          <div className="relative bg-white p-12 rounded-lg shadow-xl">
+            {/* Navigation Arrows */}
+            <button
+              onClick={prevTestimonial}
+              className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-gray-200 hover:bg-gray-300 rounded-full transition-colors z-10"
+              aria-label="Previous testimonial"
+            >
+              <ChevronLeft className="w-6 h-6 text-gray-700" />
+            </button>
+            <button
+              onClick={nextTestimonial}
+              className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-gray-200 hover:bg-gray-300 rounded-full transition-colors z-10"
+              aria-label="Next testimonial"
+            >
+              <ChevronRight className="w-6 h-6 text-gray-700" />
+            </button>
+
+            {/* Testimonial Content */}
+            <div className="text-center px-8">
+              <p className="text-xl text-gray-700 italic mb-6 leading-relaxed">
+                "{testimonials[currentTestimonial].quote}"
+              </p>
+              <p className="text-gray-900 font-semibold">— {testimonials[currentTestimonial].author}</p>
+            </div>
+
+            {/* Dots Indicator */}
+            <div className="flex justify-center gap-2 mt-8">
+              {testimonials.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentTestimonial(index)}
+                  className={`w-2 h-2 rounded-full transition-all ${
+                    index === currentTestimonial ? 'bg-gray-900 w-8' : 'bg-gray-300'
+                  }`}
+                  aria-label={`Go to testimonial ${index + 1}`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>

@@ -41,16 +41,19 @@ export default function About() {
         keywords="About Varun Photography, Professional Photographer, Photography Team, Wedding Photography Services, Trusted Photographer"
         canonical="https://www.varunphotography002.com/about"
       />
+      
       <div className="bg-white pt-20">
       <section className="relative h-96 flex items-center justify-center overflow-hidden">
         <div
-          className="absolute inset-0 bg-cover bg-center"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage:
-              "url('https://images.pexels.com/photos/1787220/pexels-photo-1787220.jpeg?auto=compress&cs=tinysrgb&w=1600')",
+              "url('/Archive (1)/background wall paper .jpg')",
+            backgroundPosition: 'center center',
+            backgroundSize: 'cover',
           }}
         >
-          <div className="absolute inset-0 bg-black opacity-60"></div>
+          <div className="absolute inset-0 bg-black opacity-40"></div>
         </div>
         <div className="relative z-10 text-center text-white px-4">
           <h1
@@ -59,6 +62,78 @@ export default function About() {
           >
             About Us
           </h1>
+        </div>
+      </section>
+      <section className="py-24 px-4 bg-white fade-in-section opacity-0">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            {/* Left Column - Text Content */}
+            <div>
+              <h2
+                className="text-4xl md:text-5xl font-bold mb-6 text-gray-900"
+                style={{ fontFamily: "'Playfair Display', serif" }}
+              >
+                10+ Years of Excellence in Photography!
+              </h2>
+              <div className="w-20 h-1 bg-pink-500 mb-8"></div>
+              <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
+                <p>
+                  We specialize in capturing the most precious moments of your life with artistic
+                  excellence and professional expertise. From grand weddings and intimate receptions
+                  to joyful birthdays and adorable baby shoots, we bring years of experience to every
+                  frame.
+                </p>
+                <p>
+                  Our team understands that every event is unique, and we approach each assignment
+                  with creativity, passion, and attention to detail. We don't just take photos—we
+                  create timeless memories that tell your story beautifully.
+                </p>
+                <p>
+                  With state-of-the-art equipment and a keen eye for detail, we ensure that every
+                  emotion, every smile, and every special moment is captured with perfection. Your
+                  memories deserve the best, and that's exactly what we deliver.
+                </p>
+              </div>
+              <Link
+                to="/services"
+                className="inline-block mt-8 border-2 border-pink-500 text-pink-500 bg-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-pink-500 hover:text-white transition-all duration-300"
+              >
+                Know More
+              </Link>
+            </div>
+
+            {/* Right Column - Image Grid */}
+            <div className="grid grid-cols-2 gap-4 h-full">
+              <div className="relative h-64 rounded-lg overflow-hidden shadow-lg">
+                <img
+                  src="/Archive (1)/001Wedding.jpg"
+                  alt="Wedding Photography"
+                  className="w-full h-full object-cover object-center"
+                />
+              </div>
+              <div className="relative h-64 rounded-lg overflow-hidden shadow-lg">
+                <img
+                  src="/Archive (1)/002Wedding.jpg"
+                  alt="Wedding Moments"
+                  className="w-full h-full object-cover object-center"
+                />
+              </div>
+              <div className="relative h-64 rounded-lg overflow-hidden shadow-lg">
+                <img
+                  src="/Archive (1)/PRE WEDDING.jpg"
+                  alt="Pre-Wedding Photography"
+                  className="w-full h-full object-cover object-center"
+                />
+              </div>
+              <div className="relative h-64 rounded-lg overflow-hidden shadow-lg">
+                <img
+                  src="/Archive (1)/kids and baby photography.jpg"
+                  alt="Baby Photography"
+                  className="w-full h-full object-cover object-center"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -145,37 +220,6 @@ export default function About() {
                 <p className="text-lg font-medium text-gray-900">{reason}</p>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-24 px-4 bg-gray-50 fade-in-section opacity-0">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2
-                className="text-4xl md:text-5xl font-bold mb-6 text-gray-900"
-                style={{ fontFamily: "'Playfair Display', serif" }}
-              >
-                Professional Studio Setup
-              </h2>
-              <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                Our state-of-the-art studio is equipped with the latest photography equipment,
-                professional lighting setups, and versatile backdrops to create stunning portraits
-                and creative shoots.
-              </p>
-              <p className="text-lg text-gray-700 leading-relaxed">
-                From intimate family portraits to elaborate fashion shoots, we have the tools and
-                expertise to bring your vision to life.
-              </p>
-            </div>
-            <div className="relative h-96 rounded-lg overflow-hidden shadow-xl">
-              <img
-                src="https://images.pexels.com/photos/2422259/pexels-photo-2422259.jpeg?auto=compress&cs=tinysrgb&w=800"
-                alt="Photography Studio"
-                className="w-full h-full object-cover"
-              />
-            </div>
           </div>
         </div>
       </section>

@@ -103,7 +103,7 @@ export function getServiceImages() {
     'Pre-wedding Shoots': '/portfolio/pre-wedding/pre_wedding.jpg',
     'Kids & Baby Photography': '/portfolio/kids and baby/baby_1.JPG',
     'Candid Photography': '/portfolio/candid/candid_2.JPG',
-    'Studio Portraits': '/Archive(1)/candid.jpg',
+    'Studio Portraits': '/Archive(1)/candid_2.jpg',
     'Photo Editing & Retouching': '/portfolio/photo editing/candid_6.JPG',
   };
 }

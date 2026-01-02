@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 import React, { useState, useRef, useEffect } from 'react';
 import { Play, Pause, Mail, ArrowRight } from 'lucide-react';
+=======
+import { useState, useRef, useEffect } from 'react';
+import { Play, Pause, Mail, ArrowRight } from '@/components/OptimizedIcons';
+>>>>>>> 713e091 (Initial project upload)
 
 interface HeroVideoSectionProps {
   heroTitle?: string;
@@ -76,8 +81,11 @@ export const HeroVideoSection: React.FC<HeroVideoSectionProps> = ({
   // Determine the actual video URL and type
   const driveInfo = googleDriveLink ? convertGoogleDriveLink(googleDriveLink) : null;
   const actualVideoUrl = driveInfo ? driveInfo.url : (videoUrl || '');
+<<<<<<< HEAD
   const isGoogleDriveFolder = driveInfo?.isFolder || false;
   const isDirectVideo = driveInfo?.isDirectVideo || false;
+=======
+>>>>>>> 713e091 (Initial project upload)
   const isGoogleDriveVideo = !!googleDriveLink; // If googleDriveLink is provided, use iframe
 
   const handleEmailSubmit = () => {

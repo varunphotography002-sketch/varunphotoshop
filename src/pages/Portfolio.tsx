@@ -1,6 +1,12 @@
 import { useState, useEffect, useRef } from 'react';
+<<<<<<< HEAD
 import { X } from 'lucide-react';
 import SEO from '@/components/SEO';
+=======
+import { X } from '@/components/OptimizedIcons';
+import SEO from '@/components/SEO';
+import { getPortfolioItemsByCategory } from '@/lib/portfolio';
+>>>>>>> 713e091 (Initial project upload)
 
 export default function Portfolio() {
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -27,6 +33,7 @@ export default function Portfolio() {
     return () => observerRef.current?.disconnect();
   }, [selectedCategory]);
 
+<<<<<<< HEAD
   const categories = ['All', 'Weddings', 'Pre-Wedding', 'Kids / Baby', 'Portraits', 'Candid', 'Events', 'Studio'];
 
   const portfolioItems = [
@@ -111,6 +118,11 @@ export default function Portfolio() {
     selectedCategory === 'All'
       ? portfolioItems
       : portfolioItems.filter((item) => item.category === selectedCategory);
+=======
+  const categories = ['All', 'Pre-wedding', 'Kids / Baby', 'Portraits', 'Candid', 'Events', 'Studio', 'Photo Editing'];
+
+  const filteredItems = getPortfolioItemsByCategory(selectedCategory);
+>>>>>>> 713e091 (Initial project upload)
 
   const openLightbox = (image: string, index: number) => {
     setSelectedImage(image);
@@ -146,6 +158,7 @@ export default function Portfolio() {
   return (
     <>
       <SEO
+<<<<<<< HEAD
         title="Portfolio - Wedding Photography Gallery | Varun Photography"
         description="Browse our stunning wedding photography portfolio. See real wedding photos, pre-wedding shoots & studio portraits. Book your session after viewing our work - quality guaranteed."
         keywords="Photography Portfolio, Wedding Photography Gallery, Pre-Wedding Photos, Candid Photography, Studio Portraits, Professional Photography, Wedding Photos"
@@ -153,6 +166,15 @@ export default function Portfolio() {
       />
       <div className="bg-white pt-20">
       <section className="relative h-96 flex items-center justify-center overflow-hidden">
+=======
+        title="Portfolio - wedding Photography Gallery | Varun Photography"
+        description="Browse our stunning wedding photography portfolio. See real wedding photos, pre-wedding shoots & studio portraits. Book your session after viewing our work - quality guaranteed."
+        keywords="Photography Portfolio, wedding Photography Gallery, Pre-wedding Photos, Candid Photography, Studio Portraits, Professional Photography, wedding Photos"
+        canonical="https://www.varunphotography002.com/portfolio"
+      />
+      <main className="bg-white pt-20">
+      <section className="relative h-96 flex items-center justify-center overflow-hidden" aria-label="Portfolio header">
+>>>>>>> 713e091 (Initial project upload)
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
@@ -175,9 +197,15 @@ export default function Portfolio() {
         </div>
       </section>
 
+<<<<<<< HEAD
       <section className="py-16 px-4 border-b border-gray-200">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-wrap justify-center gap-4">
+=======
+      <section className="py-16 px-4 border-b border-gray-200" aria-label="Portfolio categories">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-4" role="tablist">
+>>>>>>> 713e091 (Initial project upload)
             {categories.map((category) => (
               <button
                 key={category}
@@ -187,6 +215,12 @@ export default function Portfolio() {
                     ? 'bg-gray-900 text-white shadow-lg'
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                 }`}
+<<<<<<< HEAD
+=======
+                aria-label={`Filter portfolio by ${category}`}
+                aria-pressed={selectedCategory === category}
+                role="tab"
+>>>>>>> 713e091 (Initial project upload)
               >
                 {category}
               </button>
@@ -195,7 +229,11 @@ export default function Portfolio() {
         </div>
       </section>
 
+<<<<<<< HEAD
       <section className="py-16 px-4">
+=======
+      <section className="py-16 px-4" aria-label="Portfolio gallery">
+>>>>>>> 713e091 (Initial project upload)
         <div className="max-w-7xl mx-auto">
           <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
             {filteredItems.map((item, index) => (
@@ -203,6 +241,18 @@ export default function Portfolio() {
                 key={index}
                 className="fade-in-section opacity-0 break-inside-avoid relative group cursor-pointer overflow-hidden rounded-lg"
                 onClick={() => openLightbox(item.image, index)}
+<<<<<<< HEAD
+=======
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    openLightbox(item.image, index);
+                  }
+                }}
+                role="button"
+                tabIndex={0}
+                aria-label={`View ${item.title} in lightbox`}
+>>>>>>> 713e091 (Initial project upload)
               >
                 <img
                   src={item.image}
@@ -227,6 +277,10 @@ export default function Portfolio() {
           <button
             className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors"
             onClick={closeLightbox}
+<<<<<<< HEAD
+=======
+            aria-label="Close lightbox"
+>>>>>>> 713e091 (Initial project upload)
           >
             <X className="w-8 h-8" />
           </button>
@@ -237,6 +291,10 @@ export default function Portfolio() {
               e.stopPropagation();
               navigateLightbox('prev');
             }}
+<<<<<<< HEAD
+=======
+            aria-label="Previous image"
+>>>>>>> 713e091 (Initial project upload)
           >
             ‹
           </button>
@@ -254,12 +312,20 @@ export default function Portfolio() {
               e.stopPropagation();
               navigateLightbox('next');
             }}
+<<<<<<< HEAD
+=======
+            aria-label="Next image"
+>>>>>>> 713e091 (Initial project upload)
           >
             ›
           </button>
         </div>
       )}
+<<<<<<< HEAD
     </div>
+=======
+    </main>
+>>>>>>> 713e091 (Initial project upload)
     </>
   );
 }

@@ -1,5 +1,9 @@
 import { useState } from 'react';
+<<<<<<< HEAD
 import { Check, X } from 'lucide-react';
+=======
+import { Check, X } from '@/components/OptimizedIcons';
+>>>>>>> 713e091 (Initial project upload)
 
 interface ServicePackage {
   id: string;
@@ -48,7 +52,11 @@ const services: Service[] = [
   },
   {
     id: 'pre-wedding',
+<<<<<<< HEAD
     name: 'Pre-Wedding',
+=======
+    name: 'Pre-wedding',
+>>>>>>> 713e091 (Initial project upload)
     packages: [
       {
         id: 'pre-wedding-1',
@@ -58,7 +66,11 @@ const services: Service[] = [
       },
       {
         id: 'pre-wedding-2',
+<<<<<<< HEAD
         name: 'Package 2: Wedding package based on needs',
+=======
+        name: 'Package 2: wedding package based on needs',
+>>>>>>> 713e091 (Initial project upload)
         price: 150000,
         originalPrice: 300000,
       },
@@ -66,7 +78,11 @@ const services: Service[] = [
   },
   {
     id: 'wedding-album',
+<<<<<<< HEAD
     name: 'Wedding Album',
+=======
+    name: 'wedding Album',
+>>>>>>> 713e091 (Initial project upload)
     packages: [
       {
         id: 'wedding-album-1',

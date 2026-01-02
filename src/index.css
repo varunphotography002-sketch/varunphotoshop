@@ -1,4 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&display=swap');
+<<<<<<< HEAD
+=======
+/* Font display optimization - ensure fonts don't block rendering */
+@font-face {
+  font-family: 'Playfair Display';
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Poppins';
+  font-display: swap;
+}
+>>>>>>> 713e091 (Initial project upload)
 
 @tailwind base;
 @tailwind components;

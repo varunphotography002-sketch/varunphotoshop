@@ -1,6 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useTheme } from '@/components/ThemeProvider';
+<<<<<<< HEAD
 import { Play, Pause, Mail, ArrowRight, Menu, ChevronDown, Sun, Moon } from 'lucide-react';
+=======
+import { Play, Pause, Mail, ArrowRight, Menu, ChevronDown, Sun, Moon } from '@/components/OptimizedIcons';
+>>>>>>> 713e091 (Initial project upload)
 
 interface NavbarHeroProps {
   brandName?: string;

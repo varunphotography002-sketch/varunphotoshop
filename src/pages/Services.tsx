@@ -1,7 +1,15 @@
+<<<<<<< HEAD
 import { Heart, Camera, Users, Award } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useEffect, useRef } from 'react';
 import SEO from '@/components/SEO';
+=======
+import { Heart, Camera, Users, Award } from '@/components/OptimizedIcons';
+import { Link } from 'react-router-dom';
+import { useEffect, useRef } from 'react';
+import SEO from '@/components/SEO';
+import { getServiceImages } from '@/lib/portfolio';
+>>>>>>> 713e091 (Initial project upload)
 
 export default function Services() {
   const observerRef = useRef<IntersectionObserver | null>(null);
@@ -25,6 +33,7 @@ export default function Services() {
     return () => observerRef.current?.disconnect();
   }, []);
 
+<<<<<<< HEAD
   const services = [
     {
       title: 'Wedding Photography',
@@ -37,39 +46,77 @@ export default function Services() {
       description: 'Beautiful couple stories told through creative photography.',
       icon: Camera,
       image: '/Archive (1)/PRE WEDDING.jpg',
+=======
+  const serviceImages = getServiceImages();
+  
+  const services = [
+    {
+      title: 'wedding Photography',
+      description: 'Capturing the joy, emotions, rituals, and celebrations of your big day.',
+      icon: Heart,
+      image: serviceImages['wedding Photography'],
+    },
+    {
+      title: 'Pre-wedding Shoots',
+      description: 'Beautiful couple stories told through creative photography.',
+      icon: Camera,
+      image: serviceImages['Pre-wedding Shoots'],
+>>>>>>> 713e091 (Initial project upload)
     },
     {
       title: 'Kids & Baby Photography',
       description: 'Adorable and memorable photoshoots for children.',
       icon: Users,
+<<<<<<< HEAD
       image: '/Archive (1)/kids and baby photography.jpg',
+=======
+      image: serviceImages['Kids & Baby Photography'],
+>>>>>>> 713e091 (Initial project upload)
     },
     {
       title: 'Candid Photography',
       description: 'Unscripted moments captured naturally.',
       icon: Camera,
+<<<<<<< HEAD
       image: '/Archive (1)/candid .jpg',
+=======
+      image: serviceImages['Candid Photography'],
+>>>>>>> 713e091 (Initial project upload)
     },
     {
       title: 'Studio Portraits',
       description: 'Professional portraits with premium lighting setup.',
       icon: Award,
+<<<<<<< HEAD
       image: '/Archive (1)/studio .jpeg',
+=======
+      image: serviceImages['Studio Portraits'],
+>>>>>>> 713e091 (Initial project upload)
     },
     {
       title: 'Photo Editing & Retouching',
       description: 'Professional enhancements and color correction.',
       icon: Camera,
+<<<<<<< HEAD
       image: '/Archive (1)/retouching.jpg',
+=======
+      image: serviceImages['Photo Editing & Retouching'],
+>>>>>>> 713e091 (Initial project upload)
     },
   ];
 
   return (
     <>
       <SEO
+<<<<<<< HEAD
         title="Photography Services - Wedding, Pre-Wedding, Studio Portraits | Varun Photography"
         description="Book professional wedding photography, pre-wedding shoots, candid & studio portraits. Expert photographers with high-end equipment. Get a quote today - affordable packages available."
         keywords="Photography Services, Wedding Photography, Pre-Wedding Photography, Candid Photography, Studio Portraits, Kids Photography, Professional Photographer, Book Photography"
+=======
+        title="Photography Services - wedding, Pre-wedding, Studio Portraits | Varun Photography"
+        description="Book professional wedding photography, pre-wedding shoots, candid & studio portraits. Expert photographers with high-end equipment. Get a quote today - affordable packages available."
+        keywords="Photography Services, wedding Photography, Pre-wedding Photography, Candid Photography, Studio Portraits, Kids Photography, Professional Photographer, Book Photography"
+>>>>>>> 713e091 (Initial project upload)
         canonical="https://www.varunphotography002.com/services"
         structuredData={{
           '@context': 'https://schema.org',

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { Award, Target, Eye, CheckCircle, ArrowRight } from 'lucide-react';
+=======
+import { Award, Target, Eye, CheckCircle, ArrowRight } from '@/components/OptimizedIcons';
+>>>>>>> 713e091 (Initial project upload)
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import SEO from '@/components/SEO';
@@ -38,7 +42,11 @@ export default function About() {
       <SEO
         title="About Varun Photography - Professional Photography Team | Trusted Photographers"
         description="Meet Varun Photography's expert team. Years of experience in wedding photography & studio portraits. 100% customer satisfaction. Book with confidence - professional service guaranteed."
+<<<<<<< HEAD
         keywords="About Varun Photography, Professional Photographer, Photography Team, Wedding Photography Services, Trusted Photographer"
+=======
+        keywords="About Varun Photography, Professional Photographer, Photography Team, wedding Photography Services, Trusted Photographer"
+>>>>>>> 713e091 (Initial project upload)
         canonical="https://www.varunphotography002.com/about"
       />
       
@@ -106,28 +114,47 @@ export default function About() {
             <div className="grid grid-cols-2 gap-4 h-full">
               <div className="relative h-64 rounded-lg overflow-hidden shadow-lg">
                 <img
+<<<<<<< HEAD
                   src="/Archive (1)/001Wedding.jpg"
                   alt="Wedding Photography"
+=======
+                  src="/portfolio/wedding/wedding_4.jpg"
+                  alt="wedding Photography"
+>>>>>>> 713e091 (Initial project upload)
                   className="w-full h-full object-cover object-center"
                 />
               </div>
               <div className="relative h-64 rounded-lg overflow-hidden shadow-lg">
                 <img
+<<<<<<< HEAD
                   src="/Archive (1)/002Wedding.jpg"
                   alt="Wedding Moments"
+=======
+                  src="/portfolio/wedding/wedding_3.jpg"
+                  alt="wedding Moments"
+>>>>>>> 713e091 (Initial project upload)
                   className="w-full h-full object-cover object-center"
                 />
               </div>
               <div className="relative h-64 rounded-lg overflow-hidden shadow-lg">
                 <img
+<<<<<<< HEAD
                   src="/Archive (1)/PRE WEDDING.jpg"
                   alt="Pre-Wedding Photography"
+=======
+                  src="/portfolio/pre-wedding/pre_wedding.jpg"
+                  alt="Pre-wedding Photography"
+>>>>>>> 713e091 (Initial project upload)
                   className="w-full h-full object-cover object-center"
                 />
               </div>
               <div className="relative h-64 rounded-lg overflow-hidden shadow-lg">
                 <img
+<<<<<<< HEAD
                   src="/Archive (1)/kids and baby photography.jpg"
+=======
+                  src="/portfolio/kids and baby/baby_1.JPG"
+>>>>>>> 713e091 (Initial project upload)
                   alt="Baby Photography"
                   className="w-full h-full object-cover object-center"
                 />
@@ -150,7 +177,11 @@ export default function About() {
               <strong>Varun Photography</strong> — Capturing love, emotions & elegance.
             </p>
             <p>
+<<<<<<< HEAD
               Wedding, pre-wedding, and portrait photography designed to tell your story
+=======
+              wedding, pre-wedding, and portrait photography designed to tell your story
+>>>>>>> 713e091 (Initial project upload)
               beautifully. Every frame is crafted with passion, creativity, and attention to detail.
             </p>
             <p className="text-xl font-semibold text-gray-900">

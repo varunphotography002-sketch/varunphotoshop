@@ -1,17 +1,9 @@
-<<<<<<< HEAD
 import { createContext, useContext, useEffect, useState } from 'react';
-=======
-import { createContext, useContext, useEffect, useState, type ReactNode } from 'react';
->>>>>>> 713e091 (Initial project upload)
 
 type Theme = 'dark' | 'light' | 'system';
 
 type ThemeProviderProps = {
-<<<<<<< HEAD
   children: React.ReactNode;
-=======
-  children: ReactNode;
->>>>>>> 713e091 (Initial project upload)
   defaultTheme?: Theme;
   storageKey?: string;
 };
@@ -30,16 +22,6 @@ const ThemeProviderContext = createContext<ThemeProviderState>(initialState);
 
 export function ThemeProvider({
   children,
-<<<<<<< HEAD
-  defaultTheme = 'system',
-  storageKey = 'vite-ui-theme',
-  ...props
-}: ThemeProviderProps) {
-  const [theme, setTheme] = useState<Theme>(
-    () => (localStorage.getItem(storageKey) as Theme) || defaultTheme
-  );
-  const [resolvedTheme, setResolvedTheme] = useState<'light' | 'dark'>('light');
-=======
   defaultTheme = 'light',
   storageKey = 'vite-ui-theme',
   ...props
@@ -64,7 +46,6 @@ export function ThemeProvider({
     }
     return initialTheme;
   });
->>>>>>> 713e091 (Initial project upload)
 
   useEffect(() => {
     const root = window.document.documentElement;
@@ -89,7 +70,9 @@ export function ThemeProvider({
   const value = {
     theme: resolvedTheme,
     setTheme: (newTheme: Theme) => {
-      localStorage.setItem(storageKey, newTheme);
+      if (typeof window !== 'undefined' && window.localStorage) {
+        localStorage.setItem(storageKey, newTheme);
+      }
       setTheme(newTheme);
     },
   };
@@ -109,4 +92,3 @@ export const useTheme = () => {
 
   return context;
 };
-

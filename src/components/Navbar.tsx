@@ -1,9 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-<<<<<<< HEAD
-import { Menu, X, Camera } from 'lucide-react';
-=======
-import { Menu, X, Camera } from '@/components/OptimizedIcons';
->>>>>>> 713e091 (Initial project upload)
+import { Menu, X, Camera } from '@/components/Icons';
 import { useState, useEffect } from 'react';
 
 export default function Navbar() {
@@ -80,10 +76,7 @@ export default function Navbar() {
             <Link
               to="/contact"
               className="bg-gradient-to-r from-gray-900 to-gray-700 text-white px-6 py-2 rounded-full text-sm font-medium hover:shadow-lg transition-all duration-300"
-<<<<<<< HEAD
-=======
               aria-label="Book a photography session"
->>>>>>> 713e091 (Initial project upload)
             >
               Book Now
             </Link>
@@ -92,11 +85,8 @@ export default function Navbar() {
           <button
             className={`md:hidden ${shouldShowWhiteBg ? 'text-gray-900' : 'text-white'}`}
             onClick={() => setIsOpen(!isOpen)}
-<<<<<<< HEAD
-=======
             aria-label={isOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={isOpen}
->>>>>>> 713e091 (Initial project upload)
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -124,10 +114,7 @@ export default function Navbar() {
               to="/contact"
               onClick={() => setIsOpen(false)}
               className="block w-full bg-gradient-to-r from-gray-900 to-gray-700 text-white px-6 py-2 rounded-full text-sm font-medium text-center"
-<<<<<<< HEAD
-=======
               aria-label="Book a photography session"
->>>>>>> 713e091 (Initial project upload)
             >
               Book Now
             </Link>

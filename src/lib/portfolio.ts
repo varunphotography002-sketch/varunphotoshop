@@ -7,20 +7,20 @@ export interface PortfolioImage {
 
 // Portfolio images by category from public/portfolio folder
 export const portfolioImages: Record<string, PortfolioImage[]> = {
-  'weddings': [
-    { image: '/portfolio/wedding/wedding_3.jpg', title: 'wedding Moments', category: 'weddings' },
-    { image: '/portfolio/wedding/wedding_4.jpg', title: 'wedding Reception', category: 'weddings' },
-    { image: '/portfolio/wedding/wedding_5.jpg', title: 'wedding Celebration', category: 'weddings' },
-    { image: '/portfolio/wedding/wedding_6.jpg', title: 'wedding Rituals', category: 'weddings' },
+  'Weddings': [
+    { image: '/portfolio/wedding/wedding_3.jpg', title: 'Wedding Moments', category: 'Weddings' },
+    { image: '/portfolio/wedding/wedding_4.jpg', title: 'Wedding Reception', category: 'Weddings' },
+    { image: '/portfolio/wedding/wedding_5.jpg', title: 'Wedding Celebration', category: 'Weddings' },
+    { image: '/portfolio/wedding/wedding_6.jpg', title: 'Wedding Rituals', category: 'Weddings' },
   ],
-  'Pre-wedding': [
-    { image: '/portfolio/pre-wedding/pre_wedding.jpg', title: 'Pre-wedding Shoot', category: 'Pre-wedding' },
-    { image: '/portfolio/pre-wedding/pre_wedding_2.jpg', title: 'Couple Photography', category: 'Pre-wedding' },
-    { image: '/portfolio/pre-wedding/pre_wedding_3.jpg', title: 'Romantic Shoot', category: 'Pre-wedding' },
-    { image: '/portfolio/pre-wedding/pre_wedding_4.JPG', title: 'Engagement Session', category: 'Pre-wedding' },
-    { image: '/portfolio/pre-wedding/pre_wedding_5.jpg', title: 'Couple Moments', category: 'Pre-wedding' },
-    { image: '/portfolio/pre-wedding/pre_wedding_6.jpg', title: 'Pre-wedding Story', category: 'Pre-wedding' },
-    { image: '/portfolio/pre-wedding/pre_wedding_7.jpg', title: 'Love Story', category: 'Pre-wedding' },
+  'Pre-Wedding': [
+    { image: '/portfolio/pre-wedding/pre_wedding.jpg', title: 'Pre-Wedding Shoot', category: 'Pre-Wedding' },
+    { image: '/portfolio/pre-wedding/pre_wedding_2.jpg', title: 'Couple Photography', category: 'Pre-Wedding' },
+    { image: '/portfolio/pre-wedding/pre_wedding_3.jpg', title: 'Romantic Shoot', category: 'Pre-Wedding' },
+    { image: '/portfolio/pre-wedding/pre_wedding_4.JPG', title: 'Engagement Session', category: 'Pre-Wedding' },
+    { image: '/portfolio/pre-wedding/pre_wedding_5.jpg', title: 'Couple Moments', category: 'Pre-Wedding' },
+    { image: '/portfolio/pre-wedding/pre_wedding_6.jpg', title: 'Pre-Wedding Story', category: 'Pre-Wedding' },
+    { image: '/portfolio/pre-wedding/pre_wedding_7.jpg', title: 'Love Story', category: 'Pre-Wedding' },
   ],
   'Kids / Baby': [
     { image: '/portfolio/kids and baby/baby_1.JPG', title: 'Baby Portrait', category: 'Kids / Baby' },
@@ -48,14 +48,24 @@ export const portfolioImages: Record<string, PortfolioImage[]> = {
     { image: '/portfolio/studio/Pellikoduku/Engagement Gyaneshwar Jhansi_Cover.jpg', title: 'Studio Session', category: 'Studio' },
     { image: '/portfolio/studio/Pellikoduku/Engagement Gyaneshwar Jhansi_Page_001.jpg', title: 'Professional Portrait', category: 'Studio' },
     { image: '/portfolio/studio/Pellikoduku/Engagement Gyaneshwar Jhansi_Page_002.jpg', title: 'Studio Photography', category: 'Studio' },
+    { image: '/portfolio/studio/Pellikoduku/Engagement Gyaneshwar Jhansi_Page_003.jpg', title: 'Engagement Photography', category: 'Studio' },
+    { image: '/portfolio/studio/Pellikoduku/Engagement Gyaneshwar Jhansi_Page_004.jpg', title: 'Studio Portrait Session', category: 'Studio' },
+    { image: '/portfolio/studio/Pellikuthuru/Engagement Gyaneshwar Jhansi_Page_01_Cover.jpg', title: 'Cover Portrait', category: 'Studio' },
+    { image: '/portfolio/studio/Pellikuthuru/Engagement Gyaneshwar Jhansi_Page_02.jpg', title: 'Studio Engagement', category: 'Studio' },
   ],
   'Portraits': [
     { image: '/portfolio/studio/jpeg.jpeg', title: 'Portrait Session', category: 'Portraits' },
     { image: '/portfolio/studio/Pellikoduku/Engagement Gyaneshwar Jhansi_Cover.jpg', title: 'Professional Portrait', category: 'Portraits' },
+    { image: '/portfolio/studio/Pellikoduku/Engagement Gyaneshwar Jhansi_Page_001.jpg', title: 'Studio Portrait', category: 'Portraits' },
+    { image: '/portfolio/studio/Pellikoduku/Engagement Gyaneshwar Jhansi_Page_002.jpg', title: 'Portrait Photography', category: 'Portraits' },
   ],
   'Events': [
     { image: '/portfolio/wedding/wedding_3.jpg', title: 'Event Photography', category: 'Events' },
     { image: '/portfolio/wedding/wedding_4.jpg', title: 'Event Coverage', category: 'Events' },
+    { image: '/portfolio/wedding/wedding_5.jpg', title: 'Celebration Event', category: 'Events' },
+    { image: '/portfolio/wedding/wedding_6.jpg', title: 'Event Moments', category: 'Events' },
+    { image: '/portfolio/candid/wedding_1.jpg', title: 'Candid Event', category: 'Events' },
+    { image: '/portfolio/candid/wedding_2.JPG', title: 'Event Candid', category: 'Events' },
   ],
   'Photo Editing': [
     { image: '/portfolio/photo editing/candid_1.jpg', title: 'Photo Editing', category: 'Photo Editing' },
@@ -99,11 +109,11 @@ export function getFeaturedPortfolioImages(): string[] {
 // Get service images
 export function getServiceImages() {
   return {
-    'wedding Photography': '/portfolio/wedding/wedding_3.jpg',
-    'Pre-wedding Shoots': '/portfolio/pre-wedding/pre_wedding.jpg',
+    'Wedding Photography': '/portfolio/wedding/wedding_3.jpg',
+    'Pre-Wedding Shoots': '/portfolio/pre-wedding/pre_wedding.jpg',
     'Kids & Baby Photography': '/portfolio/kids and baby/baby_1.JPG',
     'Candid Photography': '/portfolio/candid/candid_2.JPG',
-    'Studio Portraits': '/Archive(1)/candid_2.jpg',
+    'Studio Portraits': '/portfolio/studio/jpeg.jpeg',
     'Photo Editing & Retouching': '/portfolio/photo editing/candid_6.JPG',
   };
 }

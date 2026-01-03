@@ -1,10 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-<<<<<<< HEAD
-import { ArrowLeft, Camera, Award, Clock, Users } from 'lucide-react';
-=======
-import { ArrowLeft, Camera, Award, Clock, Users } from '@/components/OptimizedIcons';
->>>>>>> 713e091 (Initial project upload)
+import { ArrowLeft, Camera, Award, Clock, Users } from '@/components/Icons';
 import SEO from '@/components/SEO';
 
 export default function Blog() {
@@ -53,11 +49,7 @@ export default function Blog() {
       <SEO
         title="Photography Blog - Tips & Insights | Varun Photography"
         description="Expert photography tips & wedding photography advice. Learn how to choose a professional photographer. Read our blog & book your session with Varun Photography today."
-<<<<<<< HEAD
         keywords="Photography Blog, Professional Photographer Tips, Wedding Photography Advice, Photography Insights, Choose Photographer"
-=======
-        keywords="Photography Blog, Professional Photographer Tips, wedding Photography Advice, Photography Insights, Choose Photographer"
->>>>>>> 713e091 (Initial project upload)
         canonical="https://www.varunphotography002.com/blog"
       />
       <div className="bg-white pt-20">

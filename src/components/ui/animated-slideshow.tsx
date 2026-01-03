@@ -49,7 +49,7 @@ function useHoverSliderContext() {
 export const HoverSlider = React.forwardRef<
   HTMLElement,
   React.HTMLAttributes<HTMLElement> & HoverSliderProps
->(({ children, className, ...props }, ref) => {
+>(({ children, className }, _ref) => {
   const [activeSlide, setActiveSlide] = React.useState<number>(0)
 
   const changeSlide = React.useCallback(
@@ -72,7 +72,8 @@ const WordStaggerHover = React.forwardRef<
 >(({ children, className, ...props }, ref) => {
   return (
     <span
-      className={cn("relative inline-block origin-bottom overflow-hidden")}
+      ref={ref}
+      className={cn("relative inline-block origin-bottom overflow-hidden", className)}
       {...props}
     >
       {children}

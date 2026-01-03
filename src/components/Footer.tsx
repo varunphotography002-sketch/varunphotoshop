@@ -1,9 +1,5 @@
 import { Link } from 'react-router-dom';
-<<<<<<< HEAD
-import { Camera, Instagram, Facebook, MessageCircle, Mail, Phone, Clock } from 'lucide-react';
-=======
-import { Camera, Instagram, Facebook, MessageCircle, Mail, Phone, Clock, Youtube } from '@/components/OptimizedIcons';
->>>>>>> 713e091 (Initial project upload)
+import { Camera, Instagram, Facebook, Youtube, MessageCircle, Mail, Phone, Clock } from '@/components/Icons';
 
 export default function Footer() {
   return (
@@ -25,40 +21,24 @@ export default function Footer() {
             </p>
             <div className="flex space-x-4">
               <a
-<<<<<<< HEAD
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-white transition-colors"
-=======
                 href="https://www.instagram.com/varun_photography002?igsh=ODYwaG4wdXB0cDlq"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-white transition-colors"
                 aria-label="Follow us on Instagram"
->>>>>>> 713e091 (Initial project upload)
               >
                 <Instagram className="w-5 h-5" />
               </a>
               <a
-<<<<<<< HEAD
-                href="https://facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-white transition-colors"
-=======
                 href="https://www.facebook.com/share/1Cd7hCWWEE/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-white transition-colors"
                 aria-label="Follow us on Facebook"
->>>>>>> 713e091 (Initial project upload)
               >
                 <Facebook className="w-5 h-5" />
               </a>
               <a
-<<<<<<< HEAD
-=======
                 href="https://youtube.com/@varunphotography002?si=EnE8mjTR7JAoFA2_"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -68,15 +48,11 @@ export default function Footer() {
                 <Youtube className="w-5 h-5" />
               </a>
               <a
->>>>>>> 713e091 (Initial project upload)
                 href="https://wa.me/919963562764"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-white transition-colors"
-<<<<<<< HEAD
-=======
                 aria-label="Contact us on WhatsApp"
->>>>>>> 713e091 (Initial project upload)
               >
                 <MessageCircle className="w-5 h-5" />
               </a>
@@ -117,13 +93,8 @@ export default function Footer() {
           <div>
             <h3 className="text-white font-semibold mb-4">Services</h3>
             <ul className="space-y-2 text-sm">
-<<<<<<< HEAD
               <li>Wedding Photography</li>
               <li>Pre-Wedding Shoots</li>
-=======
-              <li>wedding Photography</li>
-              <li>Pre-wedding Shoots</li>
->>>>>>> 713e091 (Initial project upload)
               <li>Kids & Baby Photography</li>
               <li>Candid Photography</li>
               <li>Studio Portraits</li>

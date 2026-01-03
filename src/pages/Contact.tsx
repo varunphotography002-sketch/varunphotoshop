@@ -1,9 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-<<<<<<< HEAD
-import { Phone, Mail, Clock, MapPin, Send } from 'lucide-react';
-=======
-import { Phone, Mail, Clock, MapPin, Send } from '@/components/OptimizedIcons';
->>>>>>> 713e091 (Initial project upload)
+import { Phone, Mail, Clock, MapPin, Send } from '@/components/Icons';
 import SEO from '@/components/SEO';
 
 export default function Contact() {
@@ -69,13 +65,8 @@ export default function Contact() {
   };
 
   const shootTypes = [
-<<<<<<< HEAD
     'Wedding Photography',
     'Pre-Wedding Shoot',
-=======
-    'wedding Photography',
-    'Pre-wedding Shoot',
->>>>>>> 713e091 (Initial project upload)
     'Kids & Baby Photography',
     'Candid Photography',
     'Studio Portraits',
@@ -110,11 +101,7 @@ export default function Contact() {
       <SEO
         title="Contact Varun Photography - Book Your Photography Session Today"
         description="Get a free quote for wedding photography, pre-wedding shoots & studio portraits. Contact us now - quick response guaranteed. Professional photography services in Hyderabad."
-<<<<<<< HEAD
         keywords="Contact Photographer, Book Photography Session, Wedding Photographer Contact, Professional Photography Booking, Photography Quote, Hyderabad Photographer"
-=======
-        keywords="Contact Photographer, Book Photography Session, wedding Photographer Contact, Professional Photography Booking, Photography Quote, Hyderabad Photographer"
->>>>>>> 713e091 (Initial project upload)
         canonical="https://www.varunphotography002.com/contact"
         structuredData={{
           '@context': 'https://schema.org',

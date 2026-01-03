@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-import React, { useState, useRef, useEffect } from 'react';
-import { Play, Pause, Mail, ArrowRight } from 'lucide-react';
-=======
 import { useState, useRef, useEffect } from 'react';
-import { Play, Pause, Mail, ArrowRight } from '@/components/OptimizedIcons';
->>>>>>> 713e091 (Initial project upload)
+import { Play, Pause, Mail, ArrowRight } from '@/components/Icons';
 
 interface HeroVideoSectionProps {
   heroTitle?: string;
@@ -17,11 +12,10 @@ interface HeroVideoSectionProps {
   autoPlayOnScroll?: boolean;
 }
 
-// Convert Google Drive link to embeddable format
-const convertGoogleDriveLink = (link: string): { url: string; isFolder: boolean; isDirectVideo: boolean } => {
+// Convert Google Drive link to embed URL
+const convertGoogleDriveLink = (link: string): { url: string; isFolder: boolean; isDirectVideo: boolean; isGoogleDrive: boolean } => {
   // Extract file ID from various Google Drive link formats
   let fileId = '';
-  let isFolder = false;
   
   // Format: https://drive.google.com/file/d/FILE_ID/view
   const fileMatch = link.match(/\/file\/d\/([a-zA-Z0-9_-]+)/);
@@ -38,26 +32,26 @@ const convertGoogleDriveLink = (link: string): { url: string; isFolder: boolean;
   // Format: https://drive.google.com/drive/folders/FOLDER_ID
   const folderMatch = link.match(/\/folders\/([a-zA-Z0-9_-]+)/);
   if (folderMatch && !fileId) {
-    isFolder = true;
-    // For folders, use iframe embed view
     return {
       url: `https://drive.google.com/embeddedfolderview?id=${folderMatch[1]}#grid`,
       isFolder: true,
-      isDirectVideo: false
+      isDirectVideo: false,
+      isGoogleDrive: true
     };
   }
   
   if (fileId) {
-    // For Google Drive videos, use iframe embed for better compatibility
-    // This works better than direct video URLs which may be blocked by CORS
+    // Use Google Drive preview embed URL - this works for videos
+    // The file must be shared publicly (anyone with the link can view)
     return {
       url: `https://drive.google.com/file/d/${fileId}/preview`,
       isFolder: false,
-      isDirectVideo: true
+      isDirectVideo: false,
+      isGoogleDrive: true
     };
   }
   
-  return { url: link, isFolder: false, isDirectVideo: false };
+  return { url: link, isFolder: false, isDirectVideo: false, isGoogleDrive: false };
 };
 
 export const HeroVideoSection: React.FC<HeroVideoSectionProps> = ({
@@ -74,19 +68,16 @@ export const HeroVideoSection: React.FC<HeroVideoSectionProps> = ({
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const [isVideoPaused, setIsVideoPaused] = useState(false);
   const [hasAutoPlayed, setHasAutoPlayed] = useState(false);
+  const [videoError, setVideoError] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
-  const iframeRef = useRef<HTMLIFrameElement>(null);
   
   // Determine the actual video URL and type
   const driveInfo = googleDriveLink ? convertGoogleDriveLink(googleDriveLink) : null;
   const actualVideoUrl = driveInfo ? driveInfo.url : (videoUrl || '');
-<<<<<<< HEAD
   const isGoogleDriveFolder = driveInfo?.isFolder || false;
   const isDirectVideo = driveInfo?.isDirectVideo || false;
-=======
->>>>>>> 713e091 (Initial project upload)
-  const isGoogleDriveVideo = !!googleDriveLink; // If googleDriveLink is provided, use iframe
+  const isGoogleDrive = driveInfo?.isGoogleDrive || false;
 
   const handleEmailSubmit = () => {
     if (onEmailSubmit) {
@@ -99,7 +90,9 @@ export const HeroVideoSection: React.FC<HeroVideoSectionProps> = ({
 
   const handlePlayVideo = () => {
     if (videoRef.current) {
-      videoRef.current.play();
+      videoRef.current.play().catch((error) => {
+        console.error('Play error:', error);
+      });
       setIsVideoPlaying(true);
       setIsVideoPaused(false);
     }
@@ -114,7 +107,9 @@ export const HeroVideoSection: React.FC<HeroVideoSectionProps> = ({
   
   const handleResumeVideo = () => {
     if (videoRef.current) {
-      videoRef.current.play();
+      videoRef.current.play().catch((error) => {
+        console.error('Resume error:', error);
+      });
       setIsVideoPaused(false);
     }
   };
@@ -124,36 +119,39 @@ export const HeroVideoSection: React.FC<HeroVideoSectionProps> = ({
     setIsVideoPaused(false);
   };
 
-  // Auto-play when scrolled into view
+  // Auto-play when scrolled into view (only for direct video, not Google Drive iframe)
   useEffect(() => {
-    if (!autoPlayOnScroll || hasAutoPlayed) return;
+    if (!autoPlayOnScroll || hasAutoPlayed || !videoRef.current || !isDirectVideo || isGoogleDrive) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting && !hasAutoPlayed) {
-            // Small delay to ensure video is loaded
-            setTimeout(() => {
-              if (videoRef.current && !isGoogleDriveVideo) {
-                videoRef.current.play().catch((error) => {
-                  console.log('Auto-play prevented by browser:', error);
-                  // If autoplay fails, show play button
-                });
-                setIsVideoPlaying(true);
-                setHasAutoPlayed(true);
-              } else if (isGoogleDriveVideo && iframeRef.current) {
-                // For Google Drive iframe, the video will be visible and ready
-                // Note: Google Drive iframes don't support programmatic autoplay
-                // but the video will be visible and users can click play
-                setHasAutoPlayed(true);
+          if (entry.isIntersecting && !hasAutoPlayed && videoRef.current) {
+            // Wait for video to be ready
+            const tryAutoPlay = () => {
+              if (videoRef.current && videoRef.current.readyState >= 2) {
+                videoRef.current.play()
+                  .then(() => {
+                    setIsVideoPlaying(true);
+                    setHasAutoPlayed(true);
+                  })
+                  .catch((error) => {
+                    console.log('Auto-play prevented by browser:', error);
+                    // Browser blocked autoplay - user will need to click play
+                  });
+              } else {
+                // Video not ready yet, wait a bit more
+                setTimeout(tryAutoPlay, 200);
               }
-            }, 800);
+            };
+
+            setTimeout(tryAutoPlay, 500);
           }
         });
       },
       {
-        threshold: 0.25, // Trigger when 25% of the component is visible
-        rootMargin: '50px' // Start loading slightly before it's fully visible
+        threshold: 0.3, // Trigger when 30% of the component is visible
+        rootMargin: '100px' // Start loading earlier
       }
     );
 
@@ -166,28 +164,54 @@ export const HeroVideoSection: React.FC<HeroVideoSectionProps> = ({
         observer.unobserve(sectionRef.current);
       }
     };
-  }, [autoPlayOnScroll, hasAutoPlayed, isGoogleDriveVideo]);
+  }, [autoPlayOnScroll, hasAutoPlayed, isDirectVideo]);
 
-  // Handle video loaded event and preload
+  // Handle video loading and error fallback (only for direct video, not Google Drive iframe)
   useEffect(() => {
     const video = videoRef.current;
-    if (!video || isGoogleDriveVideo) return;
+    if (!video || !isDirectVideo || isGoogleDrive) return;
 
-    // Preload video for better auto-play experience
+    // Set video attributes for autoplay
     video.preload = 'auto';
-    
-    const handleCanPlay = () => {
-      // Video is ready to play
-      if (autoPlayOnScroll && !hasAutoPlayed) {
-        // Video is loaded and ready
+    video.muted = true; // Required for autoplay in most browsers
+    video.playsInline = true;
+
+    const handleLoadedData = () => {
+      // Video data loaded
+      if (autoPlayOnScroll && !hasAutoPlayed && video.readyState >= 2) {
+        // Video is ready
       }
     };
 
+    const handleError = (e: Event) => {
+      console.error('Video load error:', e);
+      setVideoError(true);
+      
+      // Try fallback URL if Google Drive direct URL fails
+      if (googleDriveLink && !videoError) {
+        const fileId = googleDriveLink.match(/\/file\/d\/([a-zA-Z0-9_-]+)/)?.[1];
+        if (fileId) {
+          // Try alternative URL format
+          const fallbackUrl = `https://drive.google.com/uc?export=view&id=${fileId}`;
+          video.src = fallbackUrl;
+        }
+      }
+    };
+
+    const handleCanPlay = () => {
+      // Video can start playing
+    };
+
+    video.addEventListener('loadeddata', handleLoadedData);
+    video.addEventListener('error', handleError);
     video.addEventListener('canplay', handleCanPlay);
+
     return () => {
+      video.removeEventListener('loadeddata', handleLoadedData);
+      video.removeEventListener('error', handleError);
       video.removeEventListener('canplay', handleCanPlay);
     };
-  }, [autoPlayOnScroll, hasAutoPlayed, isGoogleDriveVideo]);
+  }, [autoPlayOnScroll, hasAutoPlayed, isDirectVideo, googleDriveLink, videoError]);
 
   return (
     <section ref={sectionRef} className="relative py-24 px-4 bg-background fade-in-section opacity-0">
@@ -221,14 +245,12 @@ export const HeroVideoSection: React.FC<HeroVideoSectionProps> = ({
 
         {/* --- Media Header --- */}
         <header className="relative w-full aspect-video rounded-3xl overflow-hidden shadow-2xl">
-          {isGoogleDriveVideo ? (
-            // Use iframe for Google Drive videos (both folders and files)
-            // This is more reliable than direct video URLs which may be blocked by CORS
+          {isGoogleDrive || isGoogleDriveFolder ? (
+            // Use iframe for Google Drive videos and folders
             <iframe
-              ref={iframeRef}
               src={actualVideoUrl}
               className="w-full h-full absolute inset-0"
-              allow="autoplay; fullscreen; encrypted-media"
+              allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
               allowFullScreen
               style={{ border: 'none' }}
               title="Google Drive Video"
@@ -238,9 +260,10 @@ export const HeroVideoSection: React.FC<HeroVideoSectionProps> = ({
               <img 
                 src={backgroundImage} 
                 alt="Background" 
+                loading="lazy"
                 className={`w-full h-full absolute inset-0 object-cover transition-opacity duration-500 ${isVideoPlaying ? 'opacity-0' : 'opacity-100'}`} 
               />
-              {actualVideoUrl && (
+              {actualVideoUrl && isDirectVideo && (
                 <video 
                   ref={videoRef} 
                   src={actualVideoUrl} 
@@ -251,7 +274,24 @@ export const HeroVideoSection: React.FC<HeroVideoSectionProps> = ({
                   playsInline 
                   muted 
                   loop={false}
+                  preload="auto"
+                  autoPlay={false}
                 />
+              )}
+              {videoError && (
+                <div className="absolute inset-0 flex items-center justify-center bg-black/50 text-white">
+                  <div className="text-center p-4">
+                    <p className="mb-4">Unable to load video</p>
+                    <a
+                      href={googleDriveLink || videoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-400 hover:text-blue-300 underline"
+                    >
+                      Open video in new tab
+                    </a>
+                  </div>
+                </div>
               )}
               <div className="absolute bottom-5 right-5 z-10">
                 {!isVideoPlaying ? (
@@ -279,4 +319,3 @@ export const HeroVideoSection: React.FC<HeroVideoSectionProps> = ({
     </section>
   );
 };
-

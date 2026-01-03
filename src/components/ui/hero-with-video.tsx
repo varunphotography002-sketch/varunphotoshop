@@ -1,10 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useTheme } from '@/components/ThemeProvider';
-<<<<<<< HEAD
-import { Play, Pause, Mail, ArrowRight, Menu, ChevronDown, Sun, Moon } from 'lucide-react';
-=======
-import { Play, Pause, Mail, ArrowRight, Menu, ChevronDown, Sun, Moon } from '@/components/OptimizedIcons';
->>>>>>> 713e091 (Initial project upload)
+import { Play, Pause, Mail, ArrowRight, Menu, ChevronDown, Sun, Moon } from '@/components/Icons';
 
 interface NavbarHeroProps {
   brandName?: string;
@@ -19,7 +15,7 @@ interface NavbarHeroProps {
 const NavbarHero: React.FC<NavbarHeroProps> = ({
   brandName = "nexus",
   heroTitle = "Innovation Meets Simplicity",
-  heroSubtitle = "Join the community",
+  heroSubtitle: _heroSubtitle = "Join the community",
   heroDescription = "Discover cutting-edge solutions designed for the modern digital landscape.",
   backgroundImage = "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80",
   videoUrl = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",

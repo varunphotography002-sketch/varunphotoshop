@@ -82,7 +82,7 @@ export default function Portfolio() {
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage:
-              "url('/Archive (1)/background wall paper .jpg')",
+              "url('/Archive (1)/background wall paper .webp')",
             backgroundPosition: 'center center',
             backgroundSize: 'cover',
           }}

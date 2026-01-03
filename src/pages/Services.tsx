@@ -30,37 +30,37 @@ export default function Services() {
       title: 'Wedding Photography',
       description: 'Capturing the joy, emotions, rituals, and celebrations of your big day.',
       icon: Heart,
-      image: '/Archive (1)/002Wedding.jpg',
+      image: '/Archive (1)/002Wedding.webp',
     },
     {
       title: 'Pre-Wedding Shoots',
       description: 'Beautiful couple stories told through creative photography.',
       icon: Camera,
-      image: '/Archive (1)/PRE WEDDING.jpg',
+      image: '/Archive (1)/PRE WEDDING.webp',
     },
     {
       title: 'Kids & Baby Photography',
       description: 'Adorable and memorable photoshoots for children.',
       icon: Users,
-      image: '/Archive (1)/kids and baby photography.jpg',
+      image: '/Archive (1)/kids and baby photography.webp',
     },
     {
       title: 'Candid Photography',
       description: 'Unscripted moments captured naturally.',
       icon: Camera,
-      image: '/Archive (1)/candid .jpg',
+      image: '/Archive (1)/candid .webp',
     },
     {
       title: 'Studio Portraits',
       description: 'Professional portraits with premium lighting setup.',
       icon: Award,
-      image: '/Archive (1)/studio .jpeg',
+      image: '/Archive (1)/studio .webp',
     },
     {
       title: 'Photo Editing & Retouching',
       description: 'Professional enhancements and color correction.',
       icon: Camera,
-      image: '/Archive (1)/retouching.jpg',
+      image: '/Archive (1)/retouching.webp',
     },
   ];
 
@@ -93,7 +93,7 @@ export default function Services() {
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage:
-              "url('/Archive (1)/background wall paper .jpg')",
+              "url('/Archive (1)/background wall paper .webp')",
             backgroundPosition: 'center center',
             backgroundSize: 'cover',
           }}

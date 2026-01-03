@@ -111,6 +111,8 @@ export default function Blog() {
             src="/images/studio.jpeg"
             alt="Professional photographer near me capturing wedding moments with high-end camera equipment"
             className="w-full h-auto rounded-lg shadow-xl"
+            loading="eager"
+            decoding="async"
           />
         </div>
 
@@ -147,6 +149,8 @@ export default function Blog() {
                 src="/images/studio.jpeg"
                 alt="Local professional photographer working with clients in studio setting"
                 className="w-full h-auto rounded-lg shadow-lg mb-6"
+                loading="lazy"
+                decoding="async"
               />
             </div>
 
@@ -184,6 +188,8 @@ export default function Blog() {
                 src="/images/wedding1.jpg"
                 alt="Professional photography services comparison and selection process"
                 className="w-full h-auto rounded-lg shadow-lg mb-6"
+                loading="lazy"
+                decoding="async"
               />
             </div>
 
@@ -238,6 +244,8 @@ export default function Blog() {
                 src="/images/studio.jpeg"
                 alt="Expert professional photographer near me with high-end equipment and studio setup"
                 className="w-full h-auto rounded-lg shadow-lg mb-6"
+                loading="lazy"
+                decoding="async"
               />
             </div>
 
@@ -294,6 +302,8 @@ export default function Blog() {
                 src="/images/wedding2.jpg"
                 alt="Local professional photographer meeting clients for consultation and planning"
                 className="w-full h-auto rounded-lg shadow-lg mb-6"
+                loading="lazy"
+                decoding="async"
               />
             </div>
 
@@ -335,6 +345,8 @@ export default function Blog() {
                 src="/images/candid.jpg"
                 alt="Emotion-driven professional photography capturing genuine moments and expressions"
                 className="w-full h-auto rounded-lg shadow-lg mb-6"
+                loading="lazy"
+                decoding="async"
               />
             </div>
 
@@ -401,6 +413,8 @@ export default function Blog() {
                 src="/images/studio.jpeg"
                 alt="Varun Photography professional photographer near me offering wedding photography and studio portraits"
                 className="w-full h-auto rounded-lg shadow-lg mb-6"
+                loading="lazy"
+                decoding="async"
               />
             </div>
 

@@ -48,20 +48,43 @@ export default function Contact() {
     setIsSubmitting(true);
     setSubmitMessage('');
 
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    // Format the message for WhatsApp
+    let whatsappMessage = `Hello! I'm interested in booking a photography session.\n\n`;
+    whatsappMessage += `*Name:* ${formData.name}\n`;
+    whatsappMessage += `*Phone:* ${formData.phone}\n`;
+    whatsappMessage += `*Email:* ${formData.email}\n`;
+    whatsappMessage += `*Type of Photoshoot:* ${formData.shootType}\n`;
+    if (formData.preferredDate) {
+      whatsappMessage += `*Preferred Date & Time:* ${formData.preferredDate}\n`;
+    }
+    if (formData.message) {
+      whatsappMessage += `*Message:* ${formData.message}\n`;
+    }
+    whatsappMessage += `\nPlease let me know the next steps.`;
 
-    setSubmitMessage('Thank you! We will call you back soon.');
+    // WhatsApp number: +91 99635 62764
+    const whatsappNumber = '919963562764';
+    const encodedMessage = encodeURIComponent(whatsappMessage);
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+    // Open WhatsApp in a new tab
+    window.open(whatsappUrl, '_blank');
+
     setIsSubmitting(false);
-    setFormData({
-      name: '',
-      phone: '',
-      email: '',
-      shootType: '',
-      preferredDate: '',
-      message: '',
-    });
-
-    setTimeout(() => setSubmitMessage(''), 5000);
+    setSubmitMessage('Redirecting to WhatsApp...');
+    
+    // Clear form after a short delay
+    setTimeout(() => {
+      setFormData({
+        name: '',
+        phone: '',
+        email: '',
+        shootType: '',
+        preferredDate: '',
+        message: '',
+      });
+      setSubmitMessage('');
+    }, 2000);
   };
 
   const shootTypes = [
@@ -336,11 +359,29 @@ export default function Contact() {
           >
             Find Us Here
           </h2>
-          <div className="bg-gray-200 rounded-lg overflow-hidden h-96 flex items-center justify-center">
-            <p className="text-gray-600 text-lg">
-              <MapPin className="w-6 h-6 inline-block mr-2" />
-              Map location to be added
-            </p>
+          <div className="rounded-lg overflow-hidden h-96 shadow-xl">
+            <iframe
+              src="https://www.google.com/maps?q=17.4280997,78.4255445&hl=en&z=15&output=embed"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Varun Photography Location"
+              className="w-full h-full"
+            ></iframe>
+          </div>
+          <div className="mt-6 text-center">
+            <a
+              href="https://maps.google.com/?q=17.4280997,78.4255445"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center text-gray-700 hover:text-gray-900 transition-colors"
+            >
+              <MapPin className="w-5 h-5 mr-2" />
+              <span>Open in Google Maps</span>
+            </a>
           </div>
         </div>
       </section>

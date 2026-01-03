@@ -48,7 +48,7 @@ export default function About() {
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage:
-              "url('/Archive (1)/background wall paper .jpg')",
+              "url('/Archive (1)/background wall paper .webp')",
             backgroundPosition: 'center center',
             backgroundSize: 'cover',
           }}
@@ -106,7 +106,7 @@ export default function About() {
             <div className="grid grid-cols-2 gap-4 h-full">
               <div className="relative h-64 rounded-lg overflow-hidden shadow-lg">
                 <img
-                  src="/Archive (1)/001Wedding.jpg"
+                  src="/Archive (1)/001Wedding.webp"
                   alt="Wedding Photography"
                   className="w-full h-full object-cover object-center"
                   loading="eager"
@@ -115,7 +115,7 @@ export default function About() {
               </div>
               <div className="relative h-64 rounded-lg overflow-hidden shadow-lg">
                 <img
-                  src="/Archive (1)/002Wedding.jpg"
+                  src="/Archive (1)/002Wedding.webp"
                   alt="Wedding Moments"
                   className="w-full h-full object-cover object-center"
                   loading="lazy"
@@ -124,7 +124,7 @@ export default function About() {
               </div>
               <div className="relative h-64 rounded-lg overflow-hidden shadow-lg">
                 <img
-                  src="/Archive (1)/PRE WEDDING.jpg"
+                  src="/Archive (1)/PRE WEDDING.webp"
                   alt="Pre-Wedding Photography"
                   className="w-full h-full object-cover object-center"
                   loading="lazy"
@@ -133,7 +133,7 @@ export default function About() {
               </div>
               <div className="relative h-64 rounded-lg overflow-hidden shadow-lg">
                 <img
-                  src="/Archive (1)/kids and baby photography.jpg"
+                  src="/Archive (1)/kids and baby photography.webp"
                   alt="Baby Photography"
                   className="w-full h-full object-cover object-center"
                   loading="lazy"

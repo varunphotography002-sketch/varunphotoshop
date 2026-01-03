@@ -35,7 +35,7 @@ export function ThemeProvider({
     return (stored as Theme) || defaultTheme;
   };
 
-  const [theme, setTheme] = useState<Theme>(getInitialTheme);
+  const [theme, setTheme] = useState<Theme>(() => getInitialTheme());
   const [resolvedTheme, setResolvedTheme] = useState<'light' | 'dark'>(() => {
     const initialTheme = getInitialTheme();
     if (initialTheme === 'system') {

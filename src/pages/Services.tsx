@@ -143,6 +143,9 @@ export default function Services() {
                   className="w-full h-full object-cover object-center hover:scale-110 transition-transform duration-500"
                   loading={index < 2 ? "eager" : "lazy"}
                   decoding="async"
+                  width="800"
+                  height="600"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                 />
               </div>
             </div>

@@ -113,6 +113,9 @@ export default function Blog() {
             className="w-full h-auto rounded-lg shadow-xl"
             loading="eager"
             decoding="async"
+            width="1200"
+            height="675"
+            sizes="100vw"
           />
         </div>
 
@@ -151,6 +154,9 @@ export default function Blog() {
                 className="w-full h-auto rounded-lg shadow-lg mb-6"
                 loading="lazy"
                 decoding="async"
+                width="1200"
+                height="675"
+                sizes="100vw"
               />
             </div>
 
@@ -190,6 +196,9 @@ export default function Blog() {
                 className="w-full h-auto rounded-lg shadow-lg mb-6"
                 loading="lazy"
                 decoding="async"
+                width="1200"
+                height="675"
+                sizes="100vw"
               />
             </div>
 
@@ -246,6 +255,9 @@ export default function Blog() {
                 className="w-full h-auto rounded-lg shadow-lg mb-6"
                 loading="lazy"
                 decoding="async"
+                width="1200"
+                height="675"
+                sizes="100vw"
               />
             </div>
 
@@ -304,6 +316,9 @@ export default function Blog() {
                 className="w-full h-auto rounded-lg shadow-lg mb-6"
                 loading="lazy"
                 decoding="async"
+                width="1200"
+                height="675"
+                sizes="100vw"
               />
             </div>
 
@@ -347,6 +362,9 @@ export default function Blog() {
                 className="w-full h-auto rounded-lg shadow-lg mb-6"
                 loading="lazy"
                 decoding="async"
+                width="1200"
+                height="675"
+                sizes="100vw"
               />
             </div>
 
@@ -415,6 +433,9 @@ export default function Blog() {
                 className="w-full h-auto rounded-lg shadow-lg mb-6"
                 loading="lazy"
                 decoding="async"
+                width="1200"
+                height="675"
+                sizes="100vw"
               />
             </div>
 

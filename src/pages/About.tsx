@@ -111,6 +111,9 @@ export default function About() {
                   className="w-full h-full object-cover object-center"
                   loading="eager"
                   decoding="async"
+                  width="400"
+                  height="300"
+                  sizes="(max-width: 768px) 50vw, 25vw"
                 />
               </div>
               <div className="relative h-64 rounded-lg overflow-hidden shadow-lg">
@@ -120,6 +123,9 @@ export default function About() {
                   className="w-full h-full object-cover object-center"
                   loading="lazy"
                   decoding="async"
+                  width="400"
+                  height="300"
+                  sizes="(max-width: 768px) 50vw, 25vw"
                 />
               </div>
               <div className="relative h-64 rounded-lg overflow-hidden shadow-lg">
@@ -129,6 +135,9 @@ export default function About() {
                   className="w-full h-full object-cover object-center"
                   loading="lazy"
                   decoding="async"
+                  width="400"
+                  height="300"
+                  sizes="(max-width: 768px) 50vw, 25vw"
                 />
               </div>
               <div className="relative h-64 rounded-lg overflow-hidden shadow-lg">
@@ -138,6 +147,9 @@ export default function About() {
                   className="w-full h-full object-cover object-center"
                   loading="lazy"
                   decoding="async"
+                  width="400"
+                  height="300"
+                  sizes="(max-width: 768px) 50vw, 25vw"
                 />
               </div>
             </div>

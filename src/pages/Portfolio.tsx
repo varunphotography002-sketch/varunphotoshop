@@ -138,6 +138,7 @@ export default function Portfolio() {
                   fetchPriority={index < 3 ? "high" : "low"}
                   width="400"
                   height="600"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   style={{ aspectRatio: '2/3' }}
                 />
                 <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>

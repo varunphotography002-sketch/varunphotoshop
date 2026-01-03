@@ -207,9 +207,9 @@ export default function Home() {
       <section className="py-24 px-4 bg-[#faf9f5] fade-in-section opacity-0">
         <div className="max-w-7xl mx-auto">
           <HoverSlider className="min-h-[70vh] flex flex-col justify-center p-6 md:p-12 bg-[#faf9f5] text-[#3d3929]">
-            <h3 className="mb-8 md:mb-12 text-[rgb(201, 100, 66)] text-xs font-medium capitalize tracking-wide text-[#c96442]">
+            <h2 className="mb-8 md:mb-12 text-[rgb(201, 100, 66)] text-xs font-medium capitalize tracking-wide text-[#c96442]">
               / our services
-            </h3>
+            </h2>
             <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 md:gap-16">
               <div className="flex flex-col space-y-3 md:space-y-4 w-full md:w-auto">
                 {services.map((service, index) => (
@@ -242,6 +242,7 @@ export default function Home() {
             <Link
               to="/services"
               className="inline-block bg-gray-900 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-700 transition-all duration-300 hover:shadow-xl"
+              aria-label="View all photography services offered by Varun Photography"
             >
               View All Services
             </Link>
@@ -279,6 +280,7 @@ export default function Home() {
                   fetchPriority={index < 2 ? "high" : "low"}
                   width="800"
                   height="600"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
                 <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-30 transition-opacity duration-300"></div>
               </div>
@@ -289,6 +291,7 @@ export default function Home() {
             <Link
               to="/portfolio"
               className="inline-block bg-gray-900 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-700 transition-all duration-300 hover:shadow-xl"
+              aria-label="Explore the full photography portfolio gallery"
             >
               Explore Full Portfolio
             </Link>
@@ -323,6 +326,7 @@ export default function Home() {
                   fetchPriority={index === 0 ? "high" : "low"}
                   width="800"
                   height="600"
+                  sizes="(max-width: 768px) 100vw, 33vw"
                 />
                 <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-30 transition-opacity duration-300"></div>
               </div>
@@ -332,6 +336,7 @@ export default function Home() {
             <Link
               to="/portfolio"
               className="inline-block bg-pink-500 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-pink-600 transition-all duration-300 hover:shadow-xl"
+              aria-label="See more photography gallery images"
             >
               See More
             </Link>

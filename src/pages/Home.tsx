@@ -155,7 +155,7 @@ export default function Home() {
           alternateName: 'Varan Photography',
           description: 'Professional wedding photography, pre-wedding shoots, candid photography, and studio portraits. Expert photographers with high-end equipment capturing your special moments.',
           url: 'https://www.varunphotography002.com',
-          logo: 'https://www.varunphotography002.com/logo%20varun.png',
+          logo: 'https://www.varunphotography002.com/favicon.png',
           image: 'https://www.varunphotography002.com/images/studio.jpeg',
           telephone: '+919963562764',
           email: 'varunphotography002@gmail.com',

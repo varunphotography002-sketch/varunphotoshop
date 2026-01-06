@@ -82,16 +82,14 @@ export const HeroVideoSection: React.FC<HeroVideoSectionProps> = ({
   const handleEmailSubmit = () => {
     if (onEmailSubmit) {
       onEmailSubmit(email);
-    } else {
-      console.log('Email submitted:', email);
     }
     setEmail('');
   };
 
   const handlePlayVideo = () => {
     if (videoRef.current) {
-      videoRef.current.play().catch((error) => {
-        console.error('Play error:', error);
+      videoRef.current.play().catch(() => {
+        // Video play failed (likely autoplay policy)
       });
       setIsVideoPlaying(true);
       setIsVideoPaused(false);
@@ -107,8 +105,8 @@ export const HeroVideoSection: React.FC<HeroVideoSectionProps> = ({
   
   const handleResumeVideo = () => {
     if (videoRef.current) {
-      videoRef.current.play().catch((error) => {
-        console.error('Resume error:', error);
+      videoRef.current.play().catch(() => {
+        // Video resume failed
       });
       setIsVideoPaused(false);
     }
@@ -135,8 +133,7 @@ export const HeroVideoSection: React.FC<HeroVideoSectionProps> = ({
                     setIsVideoPlaying(true);
                     setHasAutoPlayed(true);
                   })
-                  .catch((error) => {
-                    console.log('Auto-play prevented by browser:', error);
+                  .catch(() => {
                     // Browser blocked autoplay - user will need to click play
                   });
               } else {
@@ -183,8 +180,7 @@ export const HeroVideoSection: React.FC<HeroVideoSectionProps> = ({
       }
     };
 
-    const handleError = (e: Event) => {
-      console.error('Video load error:', e);
+    const handleError = () => {
       setVideoError(true);
       
       // Try fallback URL if Google Drive direct URL fails

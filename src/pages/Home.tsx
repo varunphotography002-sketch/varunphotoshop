@@ -149,13 +149,79 @@ export default function Home() {
         canonical="https://www.varunphotography002.com/"
         structuredData={{
           '@context': 'https://schema.org',
-          '@type': 'PhotographyService',
+          '@type': 'LocalBusiness',
+          '@id': 'https://www.varunphotography002.com',
           name: 'Varun Photography',
-          description: 'Professional wedding photography, pre-wedding shoots, candid photography, and studio portraits',
+          alternateName: 'Varan Photography',
+          description: 'Professional wedding photography, pre-wedding shoots, candid photography, and studio portraits. Expert photographers with high-end equipment capturing your special moments.',
           url: 'https://www.varunphotography002.com',
-          serviceType: ['Wedding Photography', 'Pre-Wedding Photography', 'Candid Photography', 'Studio Portraits', 'Kids Photography'],
-          areaServed: 'Hyderabad',
+          logo: 'https://www.varunphotography002.com/logo%20varun.png',
+          image: 'https://www.varunphotography002.com/images/studio.jpeg',
+          telephone: '+919963562764',
+          email: 'varunphotography002@gmail.com',
+          address: {
+            '@type': 'PostalAddress',
+            addressLocality: 'Hyderabad',
+            addressRegion: 'Telangana',
+            addressCountry: 'IN',
+          },
+          geo: {
+            '@type': 'GeoCoordinates',
+            addressLocality: 'Hyderabad',
+            addressRegion: 'Telangana',
+            addressCountry: 'IN',
+          },
+          openingHoursSpecification: [
+            {
+              '@type': 'OpeningHoursSpecification',
+              dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+              opens: '09:00',
+              closes: '22:00',
+            },
+          ],
           priceRange: '$$',
+          areaServed: {
+            '@type': 'City',
+            name: 'Hyderabad',
+          },
+          serviceType: ['Wedding Photography', 'Pre-Wedding Photography', 'Candid Photography', 'Studio Portraits', 'Kids Photography', 'Photo Editing'],
+          hasOfferCatalog: {
+            '@type': 'OfferCatalog',
+            name: 'Photography Services',
+            itemListElement: [
+              {
+                '@type': 'Offer',
+                itemOffered: {
+                  '@type': 'Service',
+                  name: 'Wedding Photography',
+                },
+              },
+              {
+                '@type': 'Offer',
+                itemOffered: {
+                  '@type': 'Service',
+                  name: 'Pre-Wedding Photography',
+                },
+              },
+              {
+                '@type': 'Offer',
+                itemOffered: {
+                  '@type': 'Service',
+                  name: 'Studio Portraits',
+                },
+              },
+              {
+                '@type': 'Offer',
+                itemOffered: {
+                  '@type': 'Service',
+                  name: 'Candid Photography',
+                },
+              },
+            ],
+          },
+          sameAs: [
+            'https://www.varunphotography002.com',
+          ],
         }}
       />
       <div className="bg-white">

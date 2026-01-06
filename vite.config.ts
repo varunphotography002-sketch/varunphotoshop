@@ -24,7 +24,7 @@ export default defineConfig({
     // Minify JavaScript (esbuild is faster and included by default)
     minify: 'esbuild',
     // Tree shaking is automatically enabled by Rollup (no need to specify)
-    // Code splitting - improved chunking strategy
+     // Code splitting - improved chunking strategy
     rollupOptions: {
       output: {
         manualChunks: (id) => {
@@ -33,7 +33,7 @@ export default defineConfig({
             if (id.includes('react') || id.includes('react-dom') || id.includes('react-router')) {
               return 'vendor-react';
             }
-            if (id.includes('framer-motion') || id.includes('lenis')) {
+            if (id.includes('framer-motion') || id.includes('motion') || id.includes('lenis')) {
               return 'vendor-motion';
             }
             if (id.includes('lucide-react')) {
